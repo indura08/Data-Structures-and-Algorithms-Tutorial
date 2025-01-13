@@ -32,16 +32,22 @@ public class LinkedListsPractice {
 
         System.out.println("Traversing forward");
 
+//        System.out.println(iterator.hasPrevious());
+//        System.out.println(iterator.next());
+//        System.out.println(iterator.hasNext());
+
         while(iterator.hasNext()){
             String nextElement = iterator.next();
+            String previousElement = iterator.previous();
             System.out.println("Next element " + nextElement);
 
             if(iterator.hasPrevious()){
-                String previousElement = iterator.previous();
                 System.out.println("Previous element " + previousElement);
             }
+            previousElement = nextElement;
+            iterator.next();
+            System.out.println();
 
-            iterator.next();        //mena me scn eke idl poddk issrht blgnna
         }
 
 
