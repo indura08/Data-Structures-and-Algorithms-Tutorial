@@ -58,5 +58,31 @@ public class DoublyLinkedLists {
         head = newNode;
         newNode.next = temp;
         temp.prev = newNode;
+
+//        newNode.next = head;
+//        head.prev = newNode;
+//        head = newNode;               //mehemath puluwan
+    }
+
+    public void insertWithIndex(int data, int index){
+        DoublyNode newNode = new DoublyNode(data);
+        DoublyNode currentNode = head;
+
+        //index ek 0 wena awassthawa run krnna
+        
+        if(head == null){
+            System.out.println("List is empty");
+        }
+
+        for(int i = 0; i < index; i++){
+            currentNode = currentNode.next;
+        }
+
+        if(currentNode == null){
+            System.out.println("Input out of bound");
+        }
+
+        newNode.next = currentNode;
+        currentNode.prev = newNode;
     }
 }
