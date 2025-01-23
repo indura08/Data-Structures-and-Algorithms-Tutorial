@@ -3,6 +3,7 @@ package StackWithImplementation;
 public class Stack {
     int stack[] = new int[4];
     int top = 0;
+
     public void push(int data){
         try{
             stack[top] = data;
@@ -13,7 +14,7 @@ public class Stack {
         }
 
         /*if(top == 5){
-            System.out.println("stack is full bitch");
+            System.out.println("stack is full");
         }
 
         else {

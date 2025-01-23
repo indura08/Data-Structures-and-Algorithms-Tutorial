@@ -45,6 +45,7 @@ public class DoublyLinkedLists {
             System.out.print(currentNode.data + " <-> " );
             currentNode = currentNode.prev;
         }
+        System.out.print(currentNode.data);
     }
 
     public void insertAtFirst(int data){
@@ -68,13 +69,15 @@ public class DoublyLinkedLists {
         DoublyNode newNode = new DoublyNode(data);
         DoublyNode currentNode = head;
 
-        //index ek 0 wena awassthawa run krnna
-        
-        if(head == null){
-            System.out.println("List is empty");
+        if(index == 0){
+            this.insertAtFirst(data);
         }
+        
+//        if(head == null){
+//            System.out.println("List is empty");
+//        }
 
-        for(int i = 0; i < index; i++){
+        for(int i = 1; i <= index; i++){
             currentNode = currentNode.next;
         }
 
@@ -82,7 +85,10 @@ public class DoublyLinkedLists {
             System.out.println("Input out of bound");
         }
 
-        newNode.next = currentNode;
+
+        currentNode.prev.next = newNode;
         currentNode.prev = newNode;
+
+
     }
 }
