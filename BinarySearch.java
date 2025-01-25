@@ -3,7 +3,7 @@ import javax.swing.*;
 public class BinarySearch {
     public static void main(String[] args) {
 
-        int[] array = {0,1,2,3,4,5,6};
+        int[] array = {0,1,2,3,4,5,6,7};
 
         int index = BinarySearch(array , 0);
         //System.out.println(array.length);
