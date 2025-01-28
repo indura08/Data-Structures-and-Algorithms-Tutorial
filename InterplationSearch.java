@@ -8,7 +8,7 @@ public class InterplationSearch {
         int[] array1 ={1,2,4,8,16,32,64,128,256,512};
         int[] array2 = {1,2,3,4,5,6,7,8,9,10};
 
-        int index = interpolationSearch(array,289);
+        int index = interpolationSearch(array2,2);
 
         if(index != -1){
             System.out.println("we found your index at index of " + index);
