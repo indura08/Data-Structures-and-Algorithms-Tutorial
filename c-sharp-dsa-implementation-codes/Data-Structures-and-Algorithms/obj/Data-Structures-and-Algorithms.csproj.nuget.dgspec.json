@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\Data-Structures-and-Algorithms.csproj": {}
+    "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-And-Algorithms\\Data-Structures-and-Algorithms.csproj": {}
   },
   "projects": {
-    "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\Data-Structures-and-Algorithms.csproj": {
+    "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-And-Algorithms\\Data-Structures-and-Algorithms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\Data-Structures-and-Algorithms.csproj",
+        "projectUniqueName": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-And-Algorithms\\Data-Structures-and-Algorithms.csproj",
         "projectName": "Data-Structures-and-Algorithms",
-        "projectPath": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\Data-Structures-and-Algorithms.csproj",
+        "projectPath": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-And-Algorithms\\Data-Structures-and-Algorithms.csproj",
         "packagesPath": "C:\\Users\\indur\\.nuget\\packages\\",
-        "outputPath": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\obj\\",
+        "outputPath": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-And-Algorithms\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\indur\\AppData\\Roaming\\NuGet\\NuGet.Config",

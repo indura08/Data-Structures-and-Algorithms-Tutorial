@@ -7,14 +7,21 @@ namespace Data_Structures_and_Algorithms
     {
         static void Main(string[] args)
         {
-            int[] arrayToBeSorted = { 9, 3, 1, 8, 6, 3, 5, 7, 4, 2 };
+            int[] arrayToBeSorted = { 9, 3, 1, 8, 6, 5, 7, 4, 2 };
 
-            BubbleSort.BubbleSortAlgorithm(arrayToBeSorted);
+            //BubbleSort.BubbleSortAlgorithm(arrayToBeSorted);
+            //SelectionSort.SelectionSortAlgorithm(arrayToBeSorted);
+
+            //InsertionSort.InsertionSortAlgorithm(arrayToBeSorted);
+
+            MergeSort.MergeSortAlgorithm(arrayToBeSorted);
 
             for (int i = 0; i <= arrayToBeSorted.Length - 1; i++)
             {
                 Console.Write(arrayToBeSorted[i] + ", ");
             }
+
+            
             
         }
     }
