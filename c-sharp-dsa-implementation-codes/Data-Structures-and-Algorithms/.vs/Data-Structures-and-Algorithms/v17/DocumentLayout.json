@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D43C4F78-4CE8-4F6B-ABF5-F53ACC7C061F}|Data-Structures-and-Algorithms.csproj|f:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\data-structures-and-algorithms\\sorting-algortihms\\quicksort.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D43C4F78-4CE8-4F6B-ABF5-F53ACC7C061F}|Data-Structures-and-Algorithms.csproj|solutionrelative:sorting-algortihms\\quicksort.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D43C4F78-4CE8-4F6B-ABF5-F53ACC7C061F}|Data-Structures-and-Algorithms.csproj|f:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\data-structures-and-algorithms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D43C4F78-4CE8-4F6B-ABF5-F53ACC7C061F}|Data-Structures-and-Algorithms.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,11 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "QuickSort.cs",
+              "DocumentMoniker": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\Sorting-algortihms\\QuickSort.cs",
+              "RelativeDocumentMoniker": "Sorting-algortihms\\QuickSort.cs",
+              "ToolTip": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\Sorting-algortihms\\QuickSort.cs",
+              "RelativeToolTip": "Sorting-algortihms\\QuickSort.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAmwCQAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T17:34:21.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MergeSort.cs",
               "DocumentMoniker": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\Sorting-algortihms\\MergeSort.cs",
               "RelativeDocumentMoniker": "Sorting-algortihms\\MergeSort.cs",
@@ -35,13 +52,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "F:\\third semester\\data structures and algorithms\\data structures and algorithms\\c-sharp-dsa-implementation-codes\\Data-Structures-and-Algorithms\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAwAAABEAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwBQAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T12:43:21.122Z",
               "EditorCaption": ""
