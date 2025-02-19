@@ -1,4 +1,5 @@
-﻿using Data_Structures_and_Algorithms.Sorting_algortihms;
+﻿using Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix;
+using Data_Structures_and_Algorithms.Sorting_algortihms;
 using System.Collections.Generic;
 
 namespace Data_Structures_and_Algorithms
@@ -25,15 +26,35 @@ namespace Data_Structures_and_Algorithms
 
             //MergeSort.MergeSortAlgorithm(arrayToBeSorted);
 
-            QuickSort.QuickSortAlgorithm(arrayToBeSorted, 0, arrayToBeSorted.Length - 1);
+            //QuickSort.QuickSortAlgorithm(arrayToBeSorted, 0, arrayToBeSorted.Length - 1);
 
-            for (int i = 0; i <= arrayToBeSorted.Length - 1; i++)
-            {
-                Console.Write(arrayToBeSorted[i] + ", ");
-            }
+            //for (int i = 0; i <= arrayToBeSorted.Length - 1; i++)
+            //{
+            //    Console.Write(arrayToBeSorted[i] + ", ");
+            //}
 
-            
-            
+            Graph graph1 = new Graph(4);
+
+            graph1.AddNode(new Node('A'));
+            graph1.AddNode(new Node('B'));
+            graph1.AddNode(new Node('C'));
+            graph1.AddNode(new Node('D'));
+
+            graph1.AddEdge(0, 1);
+            graph1.AddEdge(0, 2);
+            graph1.AddEdge(0, 3);
+            graph1.AddEdge(2, 3);
+            graph1.AddEdge(3, 1);
+            graph1.AddEdge(3, 2);
+            graph1.AddEdge(3, 0);
+            graph1.AddEdge(3, 3);
+
+            graph1.PrintGraph();
+
+            //methnd idla blnna podd
+
+
+
         }
     }
 }
