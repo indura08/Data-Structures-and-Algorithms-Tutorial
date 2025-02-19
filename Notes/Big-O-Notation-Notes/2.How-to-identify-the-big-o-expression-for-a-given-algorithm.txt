@@ -47,4 +47,61 @@ def binary_search(arr, target):
 ✅ The array shrinks by half each step → O(log n).
 
 
-Q:
+Q:how to say my algorithm is 3n + 5 if my algorithm has mathematical equation 3n+5 , im confused please explain it with an example?
+
+
+🔹 What Does 3n + 5 Mean?
+
+The expression 3n + 5 represents the number of operations an algorithm performs based on the input size n.
+
+The 3n means there is some operation happening proportional to n, but multiplied by 3 (e.g., a loop running n times with 3 operations inside).
+The +5 means there are 5 constant operations that happen no matter the size of n.
+
+🔹 Example Code for 3n + 5 Complexity
+
+def example_function(arr):
+    print("Start")   # 1 operation
+    
+    for i in range(len(arr)):  # Runs 'n' times
+        print(i)  # 1 operation per loop
+        print(i * 2)  # 1 operation per loop
+        print(i + 3)  # 1 operation per loop
+    
+    print("End")  # 1 operation
+
+
+
+Example: problmes to practice
+
+Example 1: Double Loop with Extra Operations
+
+def example1(n):
+    print("Start")  # 1 operation
+    
+    for i in range(n):  # Runs 'n' times
+        print(i)  # 1 operation per loop
+        for j in range(n):  # Runs 'n' times inside first loop
+            print(j)  # 1 operation per loop
+            
+    print("End")  # 1 operation
+
+
+👉 What's the mathematical expression?
+👉 What's the Big O complexity?
+
+
+Example 2: Half-Sized Loop with Extra Work
+
+def example2(n):
+    count = 0  # 1 operation
+    
+    while n > 1:
+        n = n // 2  # Reducing n by half
+        print(n)  # 1 operation per iteration
+        count += 1  # 1 operation per iteration
+
+    for i in range(count):  # Runs 'count' times
+        print(i)  # 1 operation per loop
+
+
+
