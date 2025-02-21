@@ -12,10 +12,10 @@ namespace Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix
         List<Node> nodes;
         int[,] matrix;
 
-        public Graph(int size) 
+        public Graph(int size)
         {
             nodes = new List<Node>();
-            matrix = new int[size,size];
+            matrix = new int[size, size];
         }
 
         public void AddNode(Node node)
@@ -25,10 +25,10 @@ namespace Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix
 
         public void AddEdge(int src, int dst)
         {
-            matrix[src,dst] = 1;
+            matrix[src, dst] = 1;
         }
 
-        public void PrintGraph() 
+        public void PrintGraph()
         {
             Console.Write("  ");
             foreach (Node node in nodes)
@@ -37,7 +37,7 @@ namespace Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix
             }
 
             Console.WriteLine();
-            for (int i = 0; i < matrix.GetLength(0); i++) 
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 Console.Write(nodes[i].data + " ");
                 for (int j = 0; j < matrix.GetLength(1); j++)
@@ -47,6 +47,32 @@ namespace Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix
 
                 Console.WriteLine();
             }   //matrix.GetLength(0) kiynne raw eke size ekath , GetLength(1) means column eke size ekai , me c# wal ena widiya
+        }
+
+        //meka depth first search algorithm ekai, meka adjacancy list ekatath include krnna puluwane kat code eka ppoddk wenas wenwa
+        public void DepthFirstsearch(int src)
+        {
+            Boolean[] visited = new Boolean[matrix.GetLength(0)];
+            DfsHelper(src, visited);
+        }
+
+        public void DfsHelper(int src, Boolean[] visited)
+        {
+            if (visited[src]) return;
+
+            else 
+            {
+                visited[src] = true;
+                Console.WriteLine(nodes[src].data + " = visited");
+            }
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                if (matrix[src, i] == 1)
+                {
+                    DfsHelper(i, visited);
+                }
+            }
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix;
+﻿using Data_Structures_and_Algorithms.Graph_Adjacency_List;
+using Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix;
 using Data_Structures_and_Algorithms.Sorting_algortihms;
 using System.Collections.Generic;
 
@@ -33,6 +34,8 @@ namespace Data_Structures_and_Algorithms
             //    Console.Write(arrayToBeSorted[i] + ", ");
             //}
 
+
+            //adjacency matrix
             Graph graph1 = new Graph(4);
 
             graph1.AddNode(new Node('A'));
@@ -51,9 +54,32 @@ namespace Data_Structures_and_Algorithms
 
             graph1.PrintGraph();
 
-            //methnd idla blnna podd
+            Console.WriteLine();
+
+            graph1.DepthFirstsearch(2);
+            Console.WriteLine();
 
 
+            //adjacency list
+            ALGraph adjacencyListGraph = new ALGraph();
+
+            adjacencyListGraph.AddNode(new ALNode('A'));
+            adjacencyListGraph.AddNode(new ALNode('B'));
+            adjacencyListGraph.AddNode(new ALNode('C'));
+            adjacencyListGraph.AddNode(new ALNode('D'));
+            adjacencyListGraph.AddNode(new ALNode('E'));
+
+            adjacencyListGraph.AddEdge(0, 1);
+            adjacencyListGraph.AddEdge(1, 2);
+            adjacencyListGraph.AddEdge(1, 4);
+            adjacencyListGraph.AddEdge(2, 3);
+            adjacencyListGraph.AddEdge(2, 4);
+            adjacencyListGraph.AddEdge(4, 0);
+            adjacencyListGraph.AddEdge(4, 2);
+
+            adjacencyListGraph.PrintGraph();
+
+            //adjacancy list ek depth first search algorithm ek implement krnna 
 
         }
     }
