@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,6 +56,31 @@ namespace Data_Structures_and_Algorithms.Graph_Adjacency_List
 
                 Console.WriteLine();
             }
+        }
+
+        public void DFSSearch(int src)
+        {
+            Boolean[] visited = new Boolean[mainList.Count];
+            dfsHelper(src, visited);
+        }
+
+        public void dfsHelper(int src, Boolean[] visited)
+        {
+            if (visited[src]) return;
+            else
+            {
+                visited[src] = true;
+                Console.WriteLine(mainList[src].First!.Value.data + " = visited");
+            }
+
+            for(int i = 0; i < mainList.Count; i++)
+            {
+                if (mainList[src].Skip(i).FirstOrDefault() != null)
+                {
+                    dfsHelper(i, visited);
+                }
+            }
+            return;
         }
 
     }

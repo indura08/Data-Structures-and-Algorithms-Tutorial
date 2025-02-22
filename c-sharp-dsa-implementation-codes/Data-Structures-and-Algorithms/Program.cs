@@ -36,38 +36,47 @@ namespace Data_Structures_and_Algorithms
 
 
             //adjacency matrix
-            Graph graph1 = new Graph(4);
+            Graph graph1 = new Graph(5);
 
             graph1.AddNode(new Node('A'));
             graph1.AddNode(new Node('B'));
             graph1.AddNode(new Node('C'));
             graph1.AddNode(new Node('D'));
+            graph1.AddNode(new Node('E'));
+
+            //graph1.AddEdge(0, 1);
+            //graph1.AddEdge(0, 2);
+            //graph1.AddEdge(0, 3);
+            //graph1.AddEdge(2, 3);
+            //graph1.AddEdge(3, 1);
+            //graph1.AddEdge(3, 2);
+            //graph1.AddEdge(3, 0);
+            //graph1.AddEdge(3, 3);
 
             graph1.AddEdge(0, 1);
-            graph1.AddEdge(0, 2);
-            graph1.AddEdge(0, 3);
+            graph1.AddEdge(1, 2);
+            graph1.AddEdge(1, 4);
             graph1.AddEdge(2, 3);
-            graph1.AddEdge(3, 1);
-            graph1.AddEdge(3, 2);
-            graph1.AddEdge(3, 0);
-            graph1.AddEdge(3, 3);
+            graph1.AddEdge(2, 4);
+            graph1.AddEdge(4, 0);
+            graph1.AddEdge(4, 2);
 
             graph1.PrintGraph();
 
             Console.WriteLine();
 
-            graph1.DepthFirstsearch(2);
+            graph1.DepthFirstsearch(0);
             Console.WriteLine();
 
 
             //adjacency list
             ALGraph adjacencyListGraph = new ALGraph();
 
-            adjacencyListGraph.AddNode(new ALNode('A'));
-            adjacencyListGraph.AddNode(new ALNode('B'));
-            adjacencyListGraph.AddNode(new ALNode('C'));
-            adjacencyListGraph.AddNode(new ALNode('D'));
-            adjacencyListGraph.AddNode(new ALNode('E'));
+            adjacencyListGraph.AddNode(new ALNode('A')); //0
+            adjacencyListGraph.AddNode(new ALNode('B')); //1
+            adjacencyListGraph.AddNode(new ALNode('C')); //2
+            adjacencyListGraph.AddNode(new ALNode('D')); //3
+            adjacencyListGraph.AddNode(new ALNode('E')); //4
 
             adjacencyListGraph.AddEdge(0, 1);
             adjacencyListGraph.AddEdge(1, 2);
@@ -78,6 +87,10 @@ namespace Data_Structures_and_Algorithms
             adjacencyListGraph.AddEdge(4, 2);
 
             adjacencyListGraph.PrintGraph();
+
+            Console.WriteLine();
+
+            adjacencyListGraph.DFSSearch(0);
 
             //adjacancy list ek depth first search algorithm ek implement krnna 
 
