@@ -64,7 +64,7 @@ namespace Data_Structures_and_Algorithms.Graph_Adjacency_List
             dfsHelper(src, visited);
         }
 
-        public void dfsHelper(int src, Boolean[] visited)
+        public void dfsHelper(int src, Boolean[] visited) //this has 0(n^2) time complexity :/ , try ot find bettr performance algorithm next time
         {
             if (visited[src]) return;
             else
@@ -73,14 +73,19 @@ namespace Data_Structures_and_Algorithms.Graph_Adjacency_List
                 Console.WriteLine(mainList[src].First!.Value.data + " = visited");
             }
 
-            for(int i = 0; i < mainList.Count; i++)
+            for(int i = 0; i < mainList[src].Count; i++)
             {
                 if (mainList[src].Skip(i).FirstOrDefault() != null)
                 {
-                    dfsHelper(i, visited);
+                    for (int j = 0; j < mainList.Count; j++)
+                    {
+                        if (mainList[j].First!.Value.data == mainList[src].Skip(i).FirstOrDefault()!.data)
+                        {
+                            dfsHelper(j, visited);
+                        }
+                    }
                 }
             }
-            return;
         }
 
     }

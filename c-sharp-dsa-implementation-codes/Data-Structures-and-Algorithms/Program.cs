@@ -77,14 +77,14 @@ namespace Data_Structures_and_Algorithms
             adjacencyListGraph.AddNode(new ALNode('C')); //2
             adjacencyListGraph.AddNode(new ALNode('D')); //3
             adjacencyListGraph.AddNode(new ALNode('E')); //4
+            adjacencyListGraph.AddNode(new ALNode('F')); //5
 
-            adjacencyListGraph.AddEdge(0, 1);
-            adjacencyListGraph.AddEdge(1, 2);
-            adjacencyListGraph.AddEdge(1, 4);
+
+            adjacencyListGraph.AddEdge(0, 2);
+            adjacencyListGraph.AddEdge(0, 4);
             adjacencyListGraph.AddEdge(2, 3);
-            adjacencyListGraph.AddEdge(2, 4);
-            adjacencyListGraph.AddEdge(4, 0);
-            adjacencyListGraph.AddEdge(4, 2);
+            adjacencyListGraph.AddEdge(4, 1);
+            adjacencyListGraph.AddEdge(1, 5);
 
             adjacencyListGraph.PrintGraph();
 
