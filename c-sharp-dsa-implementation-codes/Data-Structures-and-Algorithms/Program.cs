@@ -61,11 +61,11 @@ namespace Data_Structures_and_Algorithms
             graph1.AddEdge(4, 0);
             graph1.AddEdge(4, 2);
 
-            graph1.PrintGraph();
+            //graph1.PrintGraph();
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
-            graph1.DepthFirstsearch(0);
+            //graph1.DepthFirstsearch(0);
             
             Console.WriteLine();
             
@@ -80,14 +80,16 @@ namespace Data_Structures_and_Algorithms
             adjacencyListGraph.AddNode(new ALNode('C')); //2
             adjacencyListGraph.AddNode(new ALNode('D')); //3
             adjacencyListGraph.AddNode(new ALNode('E')); //4
-            adjacencyListGraph.AddNode(new ALNode('F')); //5
+            
 
 
-            adjacencyListGraph.AddEdge(0, 2);
-            adjacencyListGraph.AddEdge(0, 4);
+            adjacencyListGraph.AddEdge(0, 1);
+            adjacencyListGraph.AddEdge(1, 2);
+            adjacencyListGraph.AddEdge(1, 4);
             adjacencyListGraph.AddEdge(2, 3);
-            adjacencyListGraph.AddEdge(4, 1);
-            adjacencyListGraph.AddEdge(1, 5);
+            adjacencyListGraph.AddEdge(2, 4);
+            adjacencyListGraph.AddEdge(4, 0);
+            adjacencyListGraph.AddEdge(4, 2);
 
             //adjacencyListGraph.PrintGraph();
 
@@ -95,7 +97,7 @@ namespace Data_Structures_and_Algorithms
 
             //adjacencyListGraph.DFSSearch(0);
 
-            //adjacancy list ek depth first search algorithm ek implement krnna 
+            adjacencyListGraph.BFSSearch(0);
 
         }
     }

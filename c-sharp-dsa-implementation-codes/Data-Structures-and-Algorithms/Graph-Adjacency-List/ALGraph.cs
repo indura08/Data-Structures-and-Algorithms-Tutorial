@@ -101,14 +101,16 @@ namespace Data_Structures_and_Algorithms.Graph_Adjacency_List
                 src = queue.Dequeue();
                 Console.WriteLine(mainList[src].First!.Value.data + " = visited");
 
-                for (int i = 1; i < mainList.Count; i++)
+                foreach(ALNode node in mainList[src].Skip(1))
                 {
-                    if (mainList[src].Skip(1).FirstOrDefault() != null && !visited[i])
+                    for (int j = 0; j < mainList.Count; j++)
                     {
-                        queue.Enqueue(i);
-                        visited[i] = true;      //elaga 1hr eke test krla blnna 
+                        if (mainList[j].First!.Value.data == node.data && !visited[j])
+                        {
+                            queue.Enqueue(j);
+                            visited[j] = true;
+                        }
                     }
-
                 }
             }
 
