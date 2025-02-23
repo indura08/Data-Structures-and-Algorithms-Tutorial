@@ -74,5 +74,30 @@ namespace Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix
             }
             
         }
+
+        public void BreadthFirstSearch(int src) 
+        {
+            Boolean[] visited = new Boolean[matrix.GetLength(0)];
+            Queue<int> queue = new Queue<int>();
+
+            queue.Enqueue(src);
+            visited[src] = true;
+
+            while (queue.Count != 0)
+            {
+                src = queue.Dequeue();
+                Console.WriteLine(nodes[src].data + " = visited");
+
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (!visited[i] && matrix[src, i] == 1)
+                    {
+                        queue.Enqueue(i);
+                        visited[i] = true;
+                    }
+                }
+            }
+
+        }
     }
 }

@@ -66,7 +66,10 @@ namespace Data_Structures_and_Algorithms
             Console.WriteLine();
 
             graph1.DepthFirstsearch(0);
+            
             Console.WriteLine();
+            
+            graph1.BreadthFirstSearch(0);
 
 
             //adjacency list
@@ -86,11 +89,11 @@ namespace Data_Structures_and_Algorithms
             adjacencyListGraph.AddEdge(4, 1);
             adjacencyListGraph.AddEdge(1, 5);
 
-            adjacencyListGraph.PrintGraph();
+            //adjacencyListGraph.PrintGraph();
 
             Console.WriteLine();
 
-            adjacencyListGraph.DFSSearch(0);
+            //adjacencyListGraph.DFSSearch(0);
 
             //adjacancy list ek depth first search algorithm ek implement krnna 
 
