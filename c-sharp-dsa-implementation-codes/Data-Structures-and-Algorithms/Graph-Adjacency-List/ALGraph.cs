@@ -88,5 +88,31 @@ namespace Data_Structures_and_Algorithms.Graph_Adjacency_List
             }
         }
 
+        public void BFSSearch(int src)
+        {
+            Boolean[] visited = new Boolean[mainList.Count];
+            Queue<int> queue = new Queue<int>();
+
+            queue.Enqueue(src);
+            visited[src] = true;
+
+            while (queue.Count != 0)
+            {
+                src = queue.Dequeue();
+                Console.WriteLine(mainList[src].First!.Value.data + " = visited");
+
+                for (int i = 1; i < mainList.Count; i++)
+                {
+                    if (mainList[src].Skip(1).FirstOrDefault() != null && !visited[i])
+                    {
+                        queue.Enqueue(i);
+                        visited[i] = true;      //elaga 1hr eke test krla blnna 
+                    }
+
+                }
+            }
+
+        }
+
     }
 }
