@@ -112,9 +112,11 @@ namespace Data_Structures_and_Algorithms
             tree1.Insert(new BSTNode(18));
             tree1.Insert(new BSTNode(11));
 
+            //tree1.Remove(10);
+
             tree1.Display();
             Console.Write(tree1.Search(15));
-
+            
             Console.WriteLine();
             tree1.DisplayInDescendingOrder();
 
