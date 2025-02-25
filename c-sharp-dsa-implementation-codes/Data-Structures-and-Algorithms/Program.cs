@@ -1,4 +1,5 @@
-﻿using Data_Structures_and_Algorithms.Graph_Adjacency_List;
+﻿using Data_Structures_and_Algorithms.Binary_search_tree;
+using Data_Structures_and_Algorithms.Graph_Adjacency_List;
 using Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix;
 using Data_Structures_and_Algorithms.Sorting_algortihms;
 using System.Collections.Generic;
@@ -67,9 +68,9 @@ namespace Data_Structures_and_Algorithms
 
             //graph1.DepthFirstsearch(0);
             
-            Console.WriteLine();
+            //Console.WriteLine();
             
-            graph1.BreadthFirstSearch(0);
+            //graph1.BreadthFirstSearch(0);
 
 
             //adjacency list
@@ -93,11 +94,29 @@ namespace Data_Structures_and_Algorithms
 
             //adjacencyListGraph.PrintGraph();
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
             //adjacencyListGraph.DFSSearch(0);
 
-            adjacencyListGraph.BFSSearch(0);
+            //adjacencyListGraph.BFSSearch(0);
+
+            //tree creatiion
+
+            BinarySearchTree tree1 = new BinarySearchTree();
+
+            tree1.Insert(new BSTNode(10));
+            tree1.Insert(new BSTNode(5));
+            tree1.Insert(new BSTNode(15));
+            tree1.Insert(new BSTNode(3));
+            tree1.Insert(new BSTNode(7));
+            tree1.Insert(new BSTNode(18));
+            tree1.Insert(new BSTNode(11));
+
+            tree1.Display();
+            Console.Write(tree1.Search(15));
+
+            Console.WriteLine();
+            tree1.DisplayInDescendingOrder();
 
         }
     }
