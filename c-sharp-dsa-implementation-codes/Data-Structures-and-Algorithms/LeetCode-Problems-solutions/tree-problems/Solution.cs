@@ -120,16 +120,67 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions._100_same_t
 
         //108. Convert Sorted Array to Binary Search Tree
 
+        //meke array 2 awalk thiynwa eka hdagnna
+
         public TreeNode SortedArrayToBST(int[] nums)
         {
             Array.Sort(nums);
 
-            TreeNode root = new TreeNode(nums[0]);
+            int middle1 = nums.Length / 2;  //4 
+
+            int[] leftArray = new int[middle1];
+            int[] rightArray = new int[nums.Length - middle1];
+
+            for (int i = 0; i < middle1; i++)
+            {
+                leftArray[i] = nums[i];
+            }
+
+            for (int j = 0; j < (nums.Length - middle1); j++)
+            {
+                rightArray[j] = nums[j + middle1+1]; 
+            }
+
+            TreeNode root = new TreeNode(nums[middle1]);
+            TreeNode rootLeft = new TreeNode(leftArray[leftArray.Length / 2]);
+            TreeNode rootRight = new TreeNode(rightArray[rightArray.Length / 2]);
+
+            SortedArrayToBSTHelper(root, rootLeft);
+            SortedArrayToBSTHelper(root, rootRight);
+
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != root.val || nums[i] != rootLeft.val || nums[i] != rootRight.val)
+                {
+                    TreeNode newNode = new TreeNode(nums[i]);
+                    SortedArrayToBSTHelper(root, newNode);
+                }
+            }
 
             return root;
+        }
 
-            //not finished , work to be done 
+        public TreeNode SortedArrayToBSTHelper(TreeNode root, TreeNode newNode)
+        {
+            int data = newNode.val;
 
+            if (root == null)
+            {
+                root = newNode;
+                return root;
+            }
+            else if (root.val > data)
+            {
+                root.left = SortedArrayToBSTHelper(root.left, newNode);
+
+            }
+            else if (root.val < data)
+            {
+                root.right = SortedArrayToBSTHelper(root.right, newNode);
+            }
+
+            return root;
 
         }
 
