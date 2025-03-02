@@ -126,39 +126,51 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions._100_same_t
         {
             Array.Sort(nums);
 
-            int middle1 = nums.Length / 2;  //4 
-
-            int[] leftArray = new int[middle1];
-            int[] rightArray = new int[nums.Length - middle1];
-
-            for (int i = 0; i < middle1; i++)
+            if (nums.Length > 1)
             {
-                leftArray[i] = nums[i];
-            }
+                int middle1 = nums.Length / 2;  //4 
 
-            for (int j = 0; j < (nums.Length - middle1); j++)
-            {
-                rightArray[j] = nums[j + middle1+1]; 
-            }
+                int[] leftArray = new int[middle1];
+                int[] rightArray = new int[nums.Length - middle1];
 
-            TreeNode root = new TreeNode(nums[middle1]);
-            TreeNode rootLeft = new TreeNode(leftArray[leftArray.Length / 2]);
-            TreeNode rootRight = new TreeNode(rightArray[rightArray.Length / 2]);
-
-            SortedArrayToBSTHelper(root, rootLeft);
-            SortedArrayToBSTHelper(root, rootRight);
-
-
-            for (int i = 0; i < nums.Length; i++)
-            {
-                if (nums[i] != root.val || nums[i] != rootLeft.val || nums[i] != rootRight.val)
+                for (int i = 0; i < leftArray.Length; i++)
                 {
-                    TreeNode newNode = new TreeNode(nums[i]);
-                    SortedArrayToBSTHelper(root, newNode);
+                    leftArray[i] = nums[i];
                 }
-            }
 
-            return root;
+                for (int j = 0; j < rightArray.Length; j++)
+                {
+                    rightArray[j] = nums[j + middle1];
+                }
+
+                TreeNode root = new TreeNode(nums[middle1]);
+                TreeNode rootLeft = new TreeNode(leftArray[leftArray.Length / 2]);
+                TreeNode rootRight = new TreeNode(rightArray[rightArray.Length / 2]);
+
+                SortedArrayToBSTHelper(root, rootLeft);
+                SortedArrayToBSTHelper(root, rootRight);
+
+
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    if (nums[i] != root.val || nums[i] != rootLeft.val || nums[i] != rootRight.val)
+                    {
+                        TreeNode newNode = new TreeNode(nums[i]);
+                        SortedArrayToBSTHelper(root, newNode);
+                    }
+                }
+
+                return root;
+            }
+            else if (nums.Length == 0)
+            {
+                return null;
+            }
+            else 
+            {
+                TreeNode onlyNode = new TreeNode(nums[0]);
+                return onlyNode;
+            }
         }
 
         public TreeNode SortedArrayToBSTHelper(TreeNode root, TreeNode newNode)
@@ -181,6 +193,8 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions._100_same_t
             }
 
             return root;
+
+            //meke test case 11/31 n pass une , poddk blala clear krnna heta 
 
         }
 
