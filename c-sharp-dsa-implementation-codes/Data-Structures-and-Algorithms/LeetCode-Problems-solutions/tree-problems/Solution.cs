@@ -161,6 +161,34 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions._100_same_t
             return root;
         }
 
+        //112. Path Sum
+
+        int sum = 0;
+        bool status = true;
+        public bool HasPathSum(TreeNode root, int targetSum)
+        {
+            
+            if (root != null && status)
+            {
+                sum += root.val;
+
+                HasPathSum(root.left, targetSum);
+
+                if (sum == targetSum && (root.left == null && root.right == null))
+                {
+                    status = false;
+                }
+
+                if(root.left != null) sum -= root.left.val;
+
+                HasPathSum(root.right, targetSum);
+                
+                if(root.right != null) sum -= root.right.val;
+            
+            }
+            return !status;
+        }
+
 
     }
 }
