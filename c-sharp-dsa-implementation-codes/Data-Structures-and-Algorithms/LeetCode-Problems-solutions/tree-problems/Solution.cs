@@ -168,7 +168,7 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions._100_same_t
         public bool HasPathSum(TreeNode root, int targetSum)
         {
             
-            if (root != null && status)
+            if (root != null && status) 
             {
                 sum += root.val;
 
@@ -189,6 +189,58 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions._100_same_t
             return !status;
         }
 
+        //110. Balanced Binary Tree
+
+        int leftCount = 0;
+        int rightCount = 0;
+        bool Isbalanced = false;
+        public bool IsBalanced(TreeNode root)
+        {
+            if (Math.Abs(leftCount - rightCount) == 1 || Math.Abs(leftCount - rightCount) == 0)
+            {
+                Isbalanced = true;
+                leftCount = 0;
+                rightCount = 0;
+                if (root.left != null || root.left != null)
+                {
+                    IsBalanced(root.left);
+                    IsBalanced(root.right);
+                }
+            }
+            else 
+            {
+                Isbalanced = false;
+            }
+
+                return Isbalanced;
+            
+        }
+
+        public void IsBalancedHelper(TreeNode root)
+        {
+            if (root.left != null && root.right != null)
+            {
+                leftCount += 1;
+                IsBalancedHelper(root.left);
+
+                rightCount += 1;
+                IsBalancedHelper(root.right);
+            }
+            else if (root.left != null && root.right == null)
+            {
+                leftCount += 1;
+                IsBalancedHelper(root.left);
+            }
+            else if (root.left == null && root.right != null)
+            {
+                rightCount += 1;
+                IsBalancedHelper(root.right);
+            }
+            else 
+            {
+                return;
+            }
+        }
 
     }
 }
