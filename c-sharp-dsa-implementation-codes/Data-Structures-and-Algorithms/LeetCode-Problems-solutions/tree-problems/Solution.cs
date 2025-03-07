@@ -190,56 +190,42 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions._100_same_t
         }
 
         //110. Balanced Binary Tree
+        //this solution is incorrect
 
-        int leftCount = 0;
-        int rightCount = 0;
-        bool Isbalanced = false;
+        int height = 0;
         public bool IsBalanced(TreeNode root)
         {
-            if (Math.Abs(leftCount - rightCount) == 1 || Math.Abs(leftCount - rightCount) == 0)
+            IsBalancedHelper(root.left, root.right);
+
+            if (height >= -2 && height <= -2)
             {
-                Isbalanced = true;
-                leftCount = 0;
-                rightCount = 0;
-                if (root.left != null || root.left != null)
-                {
-                    IsBalanced(root.left);
-                    IsBalanced(root.right);
-                }
+                return true;
             }
             else 
             {
-                Isbalanced = false;
+                return false;
             }
-
-                return Isbalanced;
             
         }
 
-        public void IsBalancedHelper(TreeNode root)
+        public void IsBalancedHelper(TreeNode rootLeft, TreeNode rootRight)
         {
-            if (root.left != null && root.right != null)
+            if (rootLeft != null && rootRight != null)
             {
-                leftCount += 1;
-                IsBalancedHelper(root.left);
-
-                rightCount += 1;
-                IsBalancedHelper(root.right);
+                height -= 1;
+                
             }
-            else if (root.left != null && root.right == null)
+            else if (rootLeft == null || rootRight == null)
             {
-                leftCount += 1;
-                IsBalancedHelper(root.left);
+                height += 1;
             }
-            else if (root.left == null && root.right != null)
-            {
-                rightCount += 1;
-                IsBalancedHelper(root.right);
-            }
-            else 
+            else
             {
                 return;
             }
+
+            if (rootLeft != null) IsBalancedHelper(rootLeft.left, rootLeft.right);
+            if (rootRight != null) IsBalancedHelper(rootRight.left, rootRight.right);
         }
 
     }

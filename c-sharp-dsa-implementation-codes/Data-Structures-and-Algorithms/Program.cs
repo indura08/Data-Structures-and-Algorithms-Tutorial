@@ -2,6 +2,7 @@
 using Data_Structures_and_Algorithms.Graph_Adjacency_List;
 using Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix;
 using Data_Structures_and_Algorithms.LeetCode_Problems_solutions._100_same_tree_problem;
+using Data_Structures_and_Algorithms.LeetCode_Problems_solutions.Arrays_Problems;
 using Data_Structures_and_Algorithms.Sorting_algortihms;
 using System.Collections.Generic;
 
@@ -122,6 +123,13 @@ namespace Data_Structures_and_Algorithms
             tree1.DisplayInDescendingOrder();
 
             Console.WriteLine();
+
+            Console.WriteLine($"Container with most water problem{Environment.NewLine}{new string('-', 32)}");
+
+            ContainerWithMostWater obj1 = new ContainerWithMostWater();
+            Console.WriteLine(obj1.MaxArea([8, 7, 2, 1]));
+
+
 
         }
     }
