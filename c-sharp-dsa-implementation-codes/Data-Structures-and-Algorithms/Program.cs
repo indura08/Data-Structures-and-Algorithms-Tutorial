@@ -129,6 +129,10 @@ namespace Data_Structures_and_Algorithms
             ContainerWithMostWater obj1 = new ContainerWithMostWater();
             Console.WriteLine(obj1.MaxArea([8, 7, 2, 1]));
 
+            Console.WriteLine();
+
+            PlusOne.PlusOneMethod([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
+
 
 
         }

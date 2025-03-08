@@ -11,22 +11,27 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.Arrays_Prob
     {
         public int ThreeSumCloset(int[] nums, int target)
         {
-            int difference = target;
-            int closestToTarget = 0;
+            int closestToTarget = nums[0] + nums[1] + nums[2];
             for (int i = 0; i <= nums.Length - 3; i++)
             {
-                for (int j = 1; j < nums.Length-1; j++)
+                for (int k = 1; k < nums.Length - 2; k++)
                 {
-                    if ((Math.Abs((target - (nums[i] + nums[i + 1] + nums[i + 1 + j]))) <= difference)  && ((target - (nums[i] + nums[i + 1] + nums[i + 1 + j])) > -1))
+                    for (int j = nums.Length - 1; j > k; j--)
                     {
-                        closestToTarget = nums[i] + nums[i + 1] + nums[i + 1 + j];
+                        int tripletsum = nums[i] + nums[k] + nums[j];
+
+                        if (Math.Abs(target - tripletsum) < Math.Abs(target - closestToTarget))
+                        {
+                            closestToTarget = tripletsum;
+                        }
+
                     }
                 }
             }
             return closestToTarget;
         }
 
-        //in this metrhod , it gives wrong answer for: [-1,2,1,-4] array
+        //in this method , it gives wrong answer for: [-1,2,1,-4] array
 
 
     }
