@@ -21,24 +21,18 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.LInkedList_
                     {
                         curretNode.next = curretNode.next.next;
                     }
-                    else 
+                    else
                     {
                         curretNode.next = null!;
                     }
                 }
-                curretNode = curretNode.next;
+                else 
+                {
+                    curretNode = curretNode.next;
+                }
                 
             }
 
-            ListNode remainingFirstNode = head;
-            while (remainingFirstNode != null && remainingFirstNode.next!=null)
-            {
-                if (remainingFirstNode.val == remainingFirstNode.next.val)
-                {
-                    remainingFirstNode.next = null!;
-                }
-                remainingFirstNode = remainingFirstNode.next;
-            }
             return head;
         }
     }
