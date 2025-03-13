@@ -12,14 +12,14 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.LInkedList_
         {
             if (head == null) return null;
             ListNode lastNode = head;
-            int count = 0;
+            int count = 1;
             while (lastNode.next != null)
             {
                 count++;
                 lastNode = lastNode.next;
             }
             
-            ReverseListHelper(lastNode, head, count);
+            ReverseListHelper(lastNode, head, count - 1);
 
             head = lastNode;
             return head;
@@ -41,8 +41,8 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.LInkedList_
             }
 
             lastnode.next = currentNode2;
-            currentNode2.next = null;
-            ReverseListHelper(lastnode, HeadNode, count - 1);
+            
+            ReverseListHelper(lastnode.next, HeadNode, count - 1);
         }
     }
 }

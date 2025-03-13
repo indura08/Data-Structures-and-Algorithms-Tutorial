@@ -10,14 +10,23 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.LInkedList_
     {
         public ListNode ReverseBetween(ListNode head, int left, int right)
         {
-            ListNode dummyNode = head;
-            int i = 1;
-            while (i != left)
+            ListNode firstNodeBeforeLeft = head;
+            for (int i = 1; i > left-1; i++)
             {
-                dummyNode = dummyNode.next;
-                i++;
+                firstNodeBeforeLeft = firstNodeBeforeLeft.next;
             }
 
+            ListNode firstNodeAfterRight = head;
+            for (int i = 1; i <= right-1; i++)
+            {
+                firstNodeAfterRight = firstNodeAfterRight.next;
+            }
+
+            ListNode swapNode = firstNodeBeforeLeft.next;
+            for (int i = 0; i < (right - left) + 1; i++)
+            {
+                //todo - complete this loop too
+            }
             return head;
             //todo-meke okoma implment krnna meke first part ek iwar krla
         }
