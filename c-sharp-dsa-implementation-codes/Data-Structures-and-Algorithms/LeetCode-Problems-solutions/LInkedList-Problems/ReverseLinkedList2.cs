@@ -10,25 +10,55 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.LInkedList_
     {
         public ListNode ReverseBetween(ListNode head, int left, int right)
         {
+            if (left == right)
+            {
+                return head;
+            }
+
+
             ListNode firstNodeBeforeLeft = head;
-            for (int i = 1; i > left-1; i++)
+            for (int i = 1; i < left-1; i++)
             {
                 firstNodeBeforeLeft = firstNodeBeforeLeft.next;
             }
 
-            ListNode firstNodeAfterRight = head;
-            for (int i = 1; i <= right-1; i++)
+            ListNode lastNode = head;
+            for (int i = 1; i < right; i++)
             {
-                firstNodeAfterRight = firstNodeAfterRight.next;
+                lastNode = lastNode.next;
             }
 
-            ListNode swapNode = firstNodeBeforeLeft.next;
-            for (int i = 0; i < (right - left) + 1; i++)
+            ListNode firstNodeAfterRight = lastNode.next;
+
+            ReverseBetweenHelper(lastNode, firstNodeBeforeLeft.next, (right-left) + 1);
+
+            firstNodeBeforeLeft.next = lastNode;
+            ListNode temp = head;
+            for (int j = 1; j < right; j++)
             {
-                //todo - complete this loop too
+                temp = temp.next;
             }
+
+            temp.next = firstNodeAfterRight;
             return head;
-            //todo-meke okoma implment krnna meke first part ek iwar krla
+        }
+
+        public void ReverseBetweenHelper(ListNode lastNode, ListNode firstNode, int count)
+        {
+            if (count == 1) return;
+            ListNode dummyFirst = firstNode;
+
+            for (int i = 1; i < count-1; i++)
+            {
+                dummyFirst = dummyFirst.next;
+            }
+
+            lastNode.next = dummyFirst;
+            //dummyFirst = null;
+            ReverseBetweenHelper(lastNode.next, firstNode, count - 1);
         }
     }
+
+    //this solution impllementation only accpeted for 30 test cases , samml error there to fix?
+
 }
