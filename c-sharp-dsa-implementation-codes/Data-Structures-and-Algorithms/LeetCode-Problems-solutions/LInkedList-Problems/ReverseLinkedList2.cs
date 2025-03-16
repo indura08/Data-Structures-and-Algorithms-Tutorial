@@ -15,6 +15,34 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.LInkedList_
                 return head;
             }
 
+            if (left == 1 && right == 2)
+            {
+                if (head.next.next == null)
+                {
+                    ListNode tempo = head.next;
+                    head.next = null!;
+                    tempo.next = head;
+                    head = tempo;
+                    return head;
+                }
+                else 
+                {
+                    ListNode tempo = head;
+                    for (int i = 0; i < right; i++)
+                    {
+                        tempo = tempo.next;
+                    }
+                    ListNode lastNode0 = head.next;
+                    ListNode FirstNode = head;
+                    ReverseBetweenHelper(lastNode0, FirstNode, (right - left) + 1);
+
+                    head.next.next = null;
+                    head = lastNode0;
+                    lastNode0.next = tempo;
+
+
+                }
+            }
 
             ListNode firstNodeBeforeLeft = head;
             for (int i = 1; i < left-1; i++)
@@ -30,7 +58,7 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.LInkedList_
 
             ListNode firstNodeAfterRight = lastNode.next;
 
-            ReverseBetweenHelper(lastNode, firstNodeBeforeLeft.next, (right-left) + 1);
+            ReverseBetweenHelper(lastNode, firstNodeBeforeLeft.next, (right - left) + 1);
 
             firstNodeBeforeLeft.next = lastNode;
             ListNode temp = head;
@@ -40,6 +68,7 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.LInkedList_
             }
 
             temp.next = firstNodeAfterRight;
+
             return head;
         }
 
