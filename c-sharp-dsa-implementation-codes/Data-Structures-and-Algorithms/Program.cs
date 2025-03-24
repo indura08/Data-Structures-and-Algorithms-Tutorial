@@ -64,9 +64,9 @@ namespace Data_Structures_and_Algorithms
             graph1.AddEdge(4, 0);
             graph1.AddEdge(4, 2);
 
-            //graph1.PrintGraph();
+            graph1.PrintGraph();
 
-            //Console.WriteLine();
+            Console.WriteLine();
 
             //graph1.DepthFirstsearch(0);
             
