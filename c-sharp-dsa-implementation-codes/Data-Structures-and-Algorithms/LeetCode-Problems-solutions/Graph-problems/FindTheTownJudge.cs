@@ -35,6 +35,19 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.Graph_probl
 
             if (judgeList.Count == 1)
             {
+                for (int l = 0; l < matrix.GetLength(0); l++)
+                {
+                    if (l == judgeList[0])
+                    {
+                        continue; 
+                    }
+                    if (matrix[l, judgeList[0]] == 0)
+                    {
+                        return -1;
+                    }
+                    
+                }
+
                 return judgeList[0] +1;
             }
             else 
@@ -42,7 +55,5 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.Graph_probl
                 return -1;
             }
         }
-
-        //test case 90/92 podi awlk thiynwa eka hdnna 
     }
 }
