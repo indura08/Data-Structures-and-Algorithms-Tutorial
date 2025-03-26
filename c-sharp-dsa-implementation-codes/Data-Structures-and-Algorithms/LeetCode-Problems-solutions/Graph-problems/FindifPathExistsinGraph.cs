@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data_Structures_and_Algorithms.Graph_Adjacency_List;
+using Data_Structures_and_Algorithms.Graph_Adjecancy_Matrix;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +15,35 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.Graph_probl
         {
             if(n == 1 && source == destination) return true;
 
-            int[,] matrix = new int[n, n];
+            List<List<int>> mainList = new List<List<int>>();
 
-            //adding edges to a newly build graph
-            for (int i = 0; i < edges.GetLength(0); i++)
+            //add values
+            for (int i = 0; i < n; i++)
             {
-                matrix[edges[i][0], edges[i][1]] = 1;
-                matrix[edges[i][1], edges[i][0]] = 1;
+                List<int> currentList = new List<int>();
+                currentList.Add(i);
+                mainList.Add(currentList);
             }
 
-            if (matrix[source, destination] == 1) return true;
+            //add edges
+
+            for (int j = 0; j < edges.GetLength(0); j++)
+            {
+                int dest = edges[j][1];
+                mainList[edges[j][0]].Add(dest);
+
+                int reverseDest = edges[j][0];
+                mainList[edges[j][1]].Add(reverseDest);
+            }
+
+            //check path
+            foreach (int number in mainList[source])
+            {
+                if (number == destination)
+                {
+                    return true;
+                }
+            }
 
             bool[] visited = new bool[n];
             Queue<int> queue = new Queue<int>();
@@ -30,27 +51,22 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.Graph_probl
             queue.Enqueue(source);
             visited[source] = true;
 
-            while (queue.Count > 0)
+            while (queue.Count != 0)
             {
-                source = queue.Dequeue();
+                int src = queue.Dequeue();
 
-                for(int j = 0; j < matrix.GetLength(0); j++)
+                foreach (int number in mainList[src].Skip(1))
                 {
-                    if (!visited[j] && matrix[source, j] == 1 && j == destination)
+                    if(number == destination) return true;
+                    if (!visited[number])
                     {
-                        return true;
-                    }
-                    else if (!visited[j] && matrix[source, j] == 1)
-                    {
-                        queue.Enqueue(j);
-                        visited[j] = true;
+                        visited[number] = true;
+                        queue.Enqueue(number);
                     }
                 }
             }
 
             return false;
-
-            //22/24 test cases passe, loku test case ekaka out of memory error ekk awa eka hdnna one
         }
 
 

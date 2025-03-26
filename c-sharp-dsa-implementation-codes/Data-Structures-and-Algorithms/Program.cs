@@ -94,7 +94,7 @@ namespace Data_Structures_and_Algorithms
             adjacencyListGraph.AddEdge(4, 0);
             adjacencyListGraph.AddEdge(4, 2);
 
-            //adjacencyListGraph.PrintGraph();
+            adjacencyListGraph.PrintGraph();
 
             //Console.WriteLine();
 
