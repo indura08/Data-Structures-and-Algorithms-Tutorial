@@ -8,44 +8,88 @@ namespace Data_Structures_and_Algorithms.LeetCode_Problems_solutions.Arrays_Prob
 {
     public class _3Sum
     {
+        //public IList<IList<int>> ThreeSum(int[] nums)
+        //{
+        //    List<List<int>> matchingTrplets = new List<List<int>>();
+            
+        //    for (int i = 0; i < nums.Length - 2; i++)
+        //    {
+        //        for (int j = nums.Length - 1; j > i; j--)
+        //        {
+        //            for (int k = j - 1; k > i; k--)
+        //            {
+        //                if (nums[i] + nums[j] + nums[k] == 0)
+        //                {
+        //                    List<int> newList = new List<int>();
+        //                    newList.Add(nums[i]);
+        //                    newList.Add(nums[j]);
+        //                    newList.Add(nums[k]);
+        //                    bool sequeneEqual = false;
+
+        //                    foreach (List<int> currentList in matchingTrplets)
+        //                    {
+        //                        if (newList.OrderBy(x => x).SequenceEqual(currentList.OrderBy(x => x)))
+        //                        {
+        //                            sequeneEqual = true;
+        //                        }
+        //                    }
+
+        //                    if (!sequeneEqual)
+        //                    {
+        //                        matchingTrplets.Add(newList);
+                                
+        //                    }
+                            
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    return matchingTrplets.Cast<IList<int>>().ToList();
+
+        //    // 71/314 test caes passed , eka array ekaka awalk thiynwa eka blnna 
+        //}
+
         public IList<IList<int>> ThreeSum(int[] nums)
         {
-            List<List<int>> matchingTrplets = new List<List<int>>();
-            bool sequeneEqual = false;
+            Array.Sort(nums); // Step 1: Sort the array
+            List<IList<int>> result = new List<IList<int>>();
+
             for (int i = 0; i < nums.Length - 2; i++)
             {
-                for (int j = nums.Length - 1; j > i; j--)
+                // Skip duplicate values
+                if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+                int left = i + 1;
+                int right = nums.Length - 1;
+
+                while (left < right)
                 {
-                    for (int k = j - 1; k > i; k--)
+                    int sum = nums[i] + nums[left] + nums[right];
+
+                    if (sum == 0)
                     {
-                        if (nums[i] + nums[j] + nums[k] == 0)
-                        {
-                            List<int> newList = new List<int>();
-                            newList.Add(nums[i]);
-                            newList.Add(nums[j]);
-                            newList.Add(nums[k]);
+                        result.Add(new List<int> { nums[i], nums[left], nums[right] });
 
-                            foreach (List<int> currentList in matchingTrplets)
-                            {
-                                if (newList.OrderBy(x => x).SequenceEqual(currentList.OrderBy(x => x)))
-                                {
-                                    sequeneEqual = true;
-                                }
-                            }
+                        // Skip duplicate values for left and right
+                        while (left < right && nums[left] == nums[left + 1]) left++;
+                        while (left < right && nums[right] == nums[right - 1]) right--;
 
-                            if (!sequeneEqual)
-                            {
-                                matchingTrplets.Add(newList);
-                            }
-                            
-                        }
+                        left++;
+                        right--;
+                    }
+                    else if (sum < 0)
+                    {
+                        left++; // Increase sum
+                    }
+                    else
+                    {
+                        right--; // Decrease sum
                     }
                 }
             }
 
-            return matchingTrplets.Cast<IList<int>>().ToList();
-
-            // 71/314 test caes passed , eka array ekaka awalk thiynwa eka blnna 
+            return result;
         }
     }
 }
