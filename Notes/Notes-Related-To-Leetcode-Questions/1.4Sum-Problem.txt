@@ -1,0 +1,134 @@
+Q1: what is Collection.sort() and Array.sort() what is the difference and please explain what is arrays and collections? are they classes?
+
+A1:
+
+You're asking a great beginner question that clears up a lot of confusion! Let’s break it down simply so you can really understand what Arrays.sort() and Collections.sort() are — and what Arrays and Collections actually mean in Java.
+
+🔶 Are Arrays and Collections classes?
+
+Yes! Both are utility classes in Java that provide helpful methods for working with arrays and collections.
+
+✅ Arrays class
+-----------------
+
+Part of the java.util package.
+
+Used to manipulate arrays — like sorting, searching, comparing, filling, etc.
+
+Works only with arrays (like int[], String[], etc).
+
+Key Methods:
+============
+
+asList(T... a): Converts an array to a fixed-size list backed by the specified array.
+
+binarySearch(): Performs binary search on sorted arrays to find the index of a specified element.
+
+compare(): Compares two arrays lexicographically.
+
+copyOf(): Copies the specified array, truncating or padding with default values if necessary.
+
+copyOfRange(): Copies a specified range of the array into a new array.
+
+deepEquals(): Checks if two arrays are deeply equal (useful for nested arrays).
+
+deepHashCode(): Returns a hash code based on the "deep contents" of the specified array.
+
+deepToString(): Returns a string representation of the "deep contents" of the specified array.
+
+equals(): Checks if two arrays are equal.
+
+fill(): Assigns the specified value to each element of the array.
+
+hashCode(): Returns a hash code based on the contents of the array.
+
+mismatch(): Finds and returns the index of the first mismatch between two arrays.
+
+parallelPrefix(): Applies a binary operator to each element of the array in parallel.
+
+parallelSetAll(): Sets all elements of the array in parallel using a generator function.
+
+parallelSort(): Sorts the array in parallel using the Fork/Join framework.
+
+setAll(): Sets all elements of the array using a generator function.
+
+sort(): Sorts the array into ascending order.
+
+spliterator(): Returns a Spliterator covering all elements of the array.
+
+stream(): Returns a sequential Stream with the specified array as its source.
+
+toString(): Returns a string representation of the array's contents.
+
+
+
+
+✅ Collections class
+---------------------
+
+Also part of the java.util package.
+
+Used to manipulate collection types — like ArrayList, LinkedList, HashSet, etc.
+
+Works only with objects that implement the Collection interface.
+
+List<Integer> list = new ArrayList<>();
+list.add(3);
+list.add(1);
+list.add(2);
+Collections.sort(list);  // Sorts the list → [1, 2, 3]
+
+Key Methods:
+=============
+
+addAll(): Adds all specified elements to the specified collection.
+
+binarySearch(): Searches for a specified object in a sorted list using binary search.
+
+copy(): Copies all elements from one list into another.
+
+disjoint(): Returns true if two collections have no elements in common.
+
+emptyList(), emptyMap(), emptySet(): Returns an empty, immutable collection of the specified type.
+
+fill(): Replaces all elements in a list with the specified element.
+
+frequency(): Returns the number of elements in the specified collection equal to the specified object.
+
+indexOfSubList(), lastIndexOfSubList(): Returns the starting position of the first/last occurrence of the specified target list within the specified source list.
+
+max(), min(): Returns the maximum/minimum element of the given collection, according to the natural ordering or a specified comparator.
+
+nCopies(): Returns an immutable list consisting of n copies of the specified object.
+
+replaceAll(): Replaces all occurrences of one specified value in a list with another.
+
+reverse(): Reverses the order of elements in a list.
+
+reverseOrder(): Returns a comparator that imposes the reverse of the natural ordering.
+
+rotate(): Rotates the elements in the list by the specified distance.
+
+shuffle(): Randomly permutes the specified list using a default source of randomness.
+
+singleton(), singletonList(), singletonMap(): Returns an immutable set/list/map containing only the specified element/key-value pair.
+
+sort(): Sorts the specified list into ascending order, according to the natural ordering or a specified comparator.
+
+swap(): Swaps the elements at the specified positions in the specified list.
+
+synchronizedCollection(), synchronizedList(), synchronizedMap(), synchronizedSet(): Returns a synchronized (thread-safe) collection backed by the specified collection.
+
+unmodifiableCollection(), unmodifiableList(), unmodifiableMap(), unmodifiableSet(): Returns an unmodifiable view of the specified collection.
+
+🔄 So what's the difference?
+------------------------------
+
+| Feature            | `Arrays.sort()`                   | `Collections.sort()`               |
+| ------------------ | --------------------------------- | ---------------------------------- |
+| Works on           | Arrays (like `int[]`, `String[]`) | Collections (like `List<Integer>`) |
+| Modifies in-place? | Yes                               | Yes                                |
+| Type required      | Primitive or object arrays        | List of objects                    |
+| Belongs to class   | `java.util.Arrays`                | `java.util.Collections`            |
+
+
