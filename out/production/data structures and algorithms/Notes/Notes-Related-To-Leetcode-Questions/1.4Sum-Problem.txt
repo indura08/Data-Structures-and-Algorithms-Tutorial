@@ -171,7 +171,7 @@ ________________________________________________________________________________
 4Sum 2ms run time code:
 
 
- import java.util.*;
+import java.util.*;
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         return new AbstractList<List<Integer>>(){
@@ -190,7 +190,9 @@ class Solution {
             void init() {
                 Arrays.sort(nums);
                 result=new ArrayList<>();
+
                 for(int i=0; i < length-3; i++) {
+
                     if(i > 0 && nums[i-1] == nums[i]) continue;
                     for(int j=i+1; j < length-2; j++) {
                         if(j > i+1 && nums[j] == nums[j-1]) continue;
