@@ -9,7 +9,7 @@ public class GasStation134 {
         int start = 2;
         int count = 10;
 
-        int n = nums.length;;
+        int n = nums.length;
 
         for(int i = 0; i < count; i++){
             int index =  (start + i)%n;
@@ -19,6 +19,24 @@ public class GasStation134 {
 
     public int canCompleteCircuit(int[] gas, int[] cost) {
 
-        return 1;
+        int totalTank = 0;
+        int currentTank = 0;
+        int startStation = 0;
+        int n = gas.length;
+
+        for(int i = 0 ; i < n; i++){
+            int fuelTank = gas[i] - cost[i];
+            totalTank += fuelTank;
+            currentTank += fuelTank;
+
+            if(currentTank < 0){
+                startStation = i + 1;
+                currentTank = 0;
+            }
+        }
+
+        return totalTank >= 0 ? startStation : -1;
+
     }
 }
+
