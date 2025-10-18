@@ -1,0 +1,149 @@
+What is Big O Notation?
+_________________________
+
+Big O notation is a way to measure how fast or slow an algorithm is as the input size grows. Instead of measuring exact time, it gives a rough idea of how the algorithm scales when the input gets bigger.
+
+Imagine you’re ordering pizza:
+
+🍕 Fastest case: The pizza place is right next door. (Best case scenario)
+🍕 Average case: It takes the usual delivery time.
+🍕 Worst case: The driver gets stuck in traffic. (Worst case scenario)
+
+Big O focuses mostly on the worst case because we want to know the maximum time an algorithm might take.
+
+
+Common Big O Complexities (with Examples)
+__________________________________________
+
+Here are some common time complexities with real-life examples:
+
+1️⃣ O(1) - Constant Time
+---------------------
+
+🚀 Super fast! The time doesn’t change no matter how big the input is.
+Example: Looking at the first item in a list.
+
+Code Example
+
+def get_first_item(arr):
+    return arr[0]  # Always takes the same time
+
+
+2️⃣ O(log n) - Logarithmic Time
+---------------------------
+
+🔍 Efficient! The time grows slowly as input increases.
+Example: Searching in a sorted phone book (Binary Search).
+
+Code Example:
+
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+
+
+3️⃣ O(n) - Linear Time
+-------------------
+
+🏃‍♂️ Gets slower as input grows.
+Example: Checking all names in a guest list.
+
+Code Example
+
+def find_item(arr, target):
+    for item in arr:
+        if item == target:
+            return True
+    return False
+
+
+4️⃣ O(n²) - Quadratic Time
+---------------------------
+
+🐢 Very slow for large inputs.
+Example: Comparing every student with every other student in a class.
+
+Code Example
+
+def print_pairs(arr):
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            print(arr[i], arr[j])
+
+
+5️⃣ O(2ⁿ) - Exponential Time
+-----------------------------
+
+🚨 Extremely slow! Avoid if possible.
+Example: Trying all combinations in a password.
+
+Code Example
+
+
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+
+Practice Exercise
+
+Try guessing the Big O for these:
+
+1️⃣ Looping through an array once?
+2️⃣ Nested loops (loop inside another loop)?
+3️⃣ Binary Search on a sorted list?
+
+
+what is O and what is the meant by mathematical expression?
+____________________________________________________________
+
+1️⃣ What is "O" in Big O Notation?
+
+The "O" in Big O notation stands for "Order of", which means how fast an algorithm grows as the input size increases.
+
+💡 Think of "O" as a way to say "at most this fast" or "upper bound" of an algorithm’s growth.
+
+
+
+2️⃣ What Goes Inside the Brackets "O(...)"?
+
+Inside the brackets, we put a mathematical expression that represents how the number of operations increases with n (input size).
+
+Here’s what each one means:
+
+1. O(1) → Constant Time
+
+📌 No matter how big n is, the number of operations stays the same.
+Example: Looking at the first item in an array.
+
+
+2. O(n) → Linear Time
+
+📌 Operations increase directly with n.
+Example: Looping through an array
+
+3. O(log n) → Logarithmic Time
+
+📌 Each step reduces the problem size (cuts it in half).
+
+Example: Binary Search (searching in a sorted list)
+
+
+O(n²) → Quadratic Time
+
+📌 Operations grow exponentially as n grows.
+
+Example: Nested loops (checking all pairs).
+
+
+
+

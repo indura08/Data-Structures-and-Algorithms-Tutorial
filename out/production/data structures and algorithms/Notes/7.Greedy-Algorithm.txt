@@ -1,0 +1,97 @@
+🧠 What is a Greedy Algorithm?
+---------------------------------
+
+A Greedy algorithm is a strategy where:
+
+At each step, you pick the best immediate choice (the one that looks best right now) — without worrying about the bigger picture.
+
+You're basically being "greedy" — grabbing the most you can at every step — hoping that all those greedy choices lead to the best final result.
+
+🔑 Key Rule:
+---------------
+
+Greedy algorithms only work when:
+
+The local best choice also leads to the global best solution.
+
+This is not always true, so greedy only works for certain problems.
+
+✅ Simple Examples
+--------------------
+
+💰 Example 1: Coin Change (Limited to Specific Coins)
+=========================================================
+
+You want to give someone change for ₹27 using the least number of coins. You have:
+
+Coins of ₹10, ₹5, and ₹1
+
+Greedy Approach:
+
+First pick the biggest coin possible at each step.
+
+₹27 → Take ₹10 → ₹17 left
+
+Take another ₹10 → ₹7 left
+
+Take ₹5 → ₹2 left
+
+Take ₹1 twice → done
+
+✅ Used 5 coins, which is the optimal answer here.
+
+Greedy worked here because bigger coins reduce total faster.
+
+🏃‍♂️ Example 2: Activity Selection
+==================================
+
+You’re given activities with a start and end time. You can only do one at a time. Pick the maximum number of non-overlapping activities.
+
+Greedy Trick:
+
+Sort activities by ending time.
+
+Always pick the activity that ends the earliest, so you leave room for more.
+
+✅ Works because choosing the earliest-ending one always gives more time for others.
+
+
+❌ Where Greedy Fails
+-----------------------
+
+Let’s say you have coin values like ₹9, ₹6, and ₹1 and want to make ₹11.
+
+Greedy would pick ₹9 → ₹2 left → ₹1 x2 = 3 coins
+But the best is ₹6 + ₹1×5 = 6 coins.
+
+✅ So greedy fails here, because picking the biggest coin at each step doesn't give the best result.
+
+
+🧪 How to Know If Greedy Will Work?
+------------------------------------
+
+Ask:
+
+Does choosing what’s best now guarantee the best outcome?
+
+Is there a proof that local choice = global choice?
+
+If yes, greedy is great.
+If no or unsure, use Dynamic Programming instead.
+
+🧠 Honest Tip:
+-----------------
+
+If a greedy approach is giving wrong answers on edge cases or large inputs — don’t force it. Try DP or backtracking instead.
+
+Let me know if you want to practice a greedy question together, or go deeper into where greedy works or fails.
+
+
+
+
+
+
+
+
+
+
