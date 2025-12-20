@@ -1,0 +1,88 @@
+1️⃣ What Is Binary Search? (Core Idea)
+---------------------------------------
+
+Binary search finds a target value by repeatedly dividing the search space in half.
+
+Instead of checking elements one by one (linear search), it:
+
+Looks at the middle
+
+Decides which half to keep
+
+Discards the other half entirely
+
+
+🔑 The Golden Rule (Non-Negotiable)
+--------------------------------------
+
+Binary search ONLY works on sorted data
+
+If the data is not sorted → binary search is invalid.
+
+A senior engineer always states this first.
+
+3️⃣ Formal Definition (Interview-Level)
+--------------------------------
+Binary search is a divide-and-conquer algorithm that locates a target value in a sorted collection by repeatedly comparing the target to the middle element and narrowing the search range by half.
+
+
+7️⃣ Time Complexity (This Is Why It’s Famous)
+--------------------------------------
+
+⏱ Time Complexity: O(log n)
+
+Each step halves the problem.
+
+Example:
+
+1,000,000 elements
+
+Max comparisons ≈ 20
+
+This is huge in systems design.
+
+9️⃣ Binary Search Preconditions (Interview MUST)
+------------------------------------------
+
+A senior engineer explicitly states:
+
+Data must be sorted
+
+Random access required (arrays, not linked lists)
+
+12️⃣ Binary Search on “Answer Space” (VERY SENIOR)
+----------------------------------------------
+
+Not just arrays.
+
+Examples:
+
+Minimum capacity
+
+Maximum speed
+
+Optimal value
+
+Pattern:
+
+“Find the smallest X such that condition(X) is true”
+
+This is binary search on a function.
+
+16️⃣ Interview Gold Answers
+-------------------------
+
+❓ “Why binary search is not always better?”
+
+💡 Answer:
+
+Because it requires sorted data and random access; for small or unsorted datasets, linear search is simpler and often faster.
+
+❓ “Why is binary search O(log n)?”
+
+💡 Answer:
+
+Because each iteration halves the remaining search space.
+
+
+

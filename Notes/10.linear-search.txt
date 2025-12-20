@@ -1,0 +1,108 @@
+1️⃣ What is Linear Search? (Core Idea)
+----------------------------------------
+
+Linear Search is the simplest searching algorithm.
+
+You check elements one by one, from start to end, until:
+
+you find the target, or
+
+you reach the end of the collection
+
+No assumptions.
+No sorting required.
+Just brute-force truth.
+
+4️⃣ Time Complexity (THIS is where seniors differ)
+-----------------------------------------
+
+⏱ Worst Case: O(n)
+
+Target is at the end or not present
+
+You check every element
+
+⚡ Best Case: O(1)
+
+Target is the first element
+
+📊 Average Case: O(n)
+
+On average, you scan about n / 2 elements
+
+📌 Key senior insight
+Big-O ignores constants → average is still O(n).
+
+
+5️⃣ Space Complexity
+-------------------
+
+💾 Space: O(1)
+
+Uses a constant amount of memory
+
+No extra data structures
+
+6️⃣ When SHOULD You Use Linear Search?
+-----------------------------------
+
+A senior engineer does not ask “Is it fast?”
+They ask “Is it appropriate?”
+
+✅ Good choice when:
+
+Data size is small
+
+Data is unsorted
+
+Data is dynamic
+
+Only one search
+
+Simplicity > performance
+
+Examples:
+
+Config files
+
+User input validation
+
+Small arrays
+
+One-time lookups
+
+
+This is why linear search is memory-friendly.
+
+9️⃣ Variants of Linear Search (Important!)
+----------------------------------
+
+1️⃣ Search & Return Index
+return index;
+
+2️⃣ Search & Return Boolean
+return true / false;
+
+3️⃣ Find All Occurrences
+function findAll(arr: number[], target: number): number[] {
+  const result: number[] = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === target) result.push(i);
+  }
+  return result;
+}
+
+4️⃣ Sentinel Linear Search (Optimization)
+
+Place target at end
+
+Avoid bounds checking inside loop
+
+Used in low-level performance code
+
+🔥 10️⃣ Senior-Level Insights (This Is Gold)
+-------------------------------------
+
+1️⃣ Linear Search is a baseline
+
+Every advanced search algorithm is compared against it.
