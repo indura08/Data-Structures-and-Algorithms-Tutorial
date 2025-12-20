@@ -106,3 +106,19 @@ Used in low-level performance code
 1️⃣ Linear Search is a baseline
 
 Every advanced search algorithm is compared against it.
+
+2️⃣ Cache friendliness
+
+Sequential memory access = CPU cache friendly
+Sometimes linear search beats binary search on very small arrays.
+
+3️⃣ Linked Lists
+
+Linear search is the only option for linked lists.
+
+4️⃣ Databases & Systems
+
+Table scans = linear search
+
+Used when indexes don’t exist
+
