@@ -1,4 +1,4 @@
-function selectionSort(array:number[]):number[]{
+function selectionSort(array:number[]):void{
     for(let i = 0; i < array.length - 1; i++){
         let minValue = i;
         if(minValue === undefined){
@@ -11,7 +11,7 @@ function selectionSort(array:number[]):number[]{
                 continue;
             }
 
-            if(currentValue < minValue){
+            if(currentValue < array[minValue]!){
                 minValue = j
             }
         }
@@ -22,7 +22,6 @@ function selectionSort(array:number[]):number[]{
 
     }
 
-    return array;
 }
 
 const array: number[] = [45,12,29,71,59,27,8,10]

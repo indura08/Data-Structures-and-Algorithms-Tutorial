@@ -9,7 +9,7 @@ function selectionSort(array) {
             if (currentValue === undefined) {
                 continue;
             }
-            if (currentValue < minValue) {
+            if (currentValue < array[minValue]) {
                 minValue = j;
             }
         }
@@ -17,10 +17,10 @@ function selectionSort(array) {
         array[i] = array[minValue];
         array[minValue] = temp;
     }
-    return array;
 }
 var array = [45, 12, 29, 71, 59, 27, 8, 10];
 selectionSort(array);
 array.forEach(function (element) {
     console.log("sorted array element: ".concat(element));
 });
+//this shiould be fioxed , this is wrong
