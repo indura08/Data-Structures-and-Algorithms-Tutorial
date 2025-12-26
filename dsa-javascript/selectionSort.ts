@@ -31,5 +31,3 @@ array.forEach((element:number) => {
     console.log(`sorted array element: ${element}`)
 })
 
-//this shiould be fioxed , this is wrong
-

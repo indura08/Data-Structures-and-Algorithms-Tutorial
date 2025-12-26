@@ -1,0 +1,224 @@
+1️⃣ What Is Merge Sort? (Plain English)
+
+Merge Sort is a divide-and-conquer sorting algorithm.
+
+It repeatedly splits the array into smaller parts, sorts those parts, and then merges them back together in sorted order.
+
+Key idea:
+
+Small problems are easy to solve; combine their solutions to solve the big problem.
+
+2️⃣ The Core Strategy: Divide & Conquer
+
+Merge Sort follows three steps:
+
+Divide the array into two halves
+
+Conquer by recursively sorting each half
+
+Merge the two sorted halves
+
+This happens recursively until each subarray has one element.
+
+3️⃣ Why Merge Sort Works (Intuition)
+
+A single element is already sorted.
+
+So if we:
+
+Break the array down into single elements
+
+Then merge them in sorted order
+
+👉 The entire array becomes sorted.
+
+4️⃣ Visual Walkthrough
+
+Array:
+
+[38, 27, 43, 3, 9, 82, 10]
+
+Step 1 — Divide
+[38, 27, 43]   [3, 9, 82, 10]
+
+Step 2 — Divide again
+[38] [27, 43]   [3, 9] [82, 10]
+
+Step 3 — Divide until size = 1
+[27] [43]
+[82] [10]
+
+Step 4 — Merge
+[27, 43]
+[10, 82]
+
+Step 5 — Merge again
+[27, 38, 43]
+[3, 9, 10, 82]
+
+Step 6 — Final merge
+[3, 9, 10, 27, 38, 43, 82]
+
+5️⃣ Algorithm Steps (Formal)
+
+If array length ≤ 1 → return array
+
+Split array into left and right halves
+
+Recursively sort both halves
+
+Merge sorted halves into one sorted array
+
+6️⃣ Merge Function (The Heart of Merge Sort)
+
+This is the most important part.
+
+How merging works:
+
+Compare the first elements of both arrays
+
+Move the smaller one into the result
+
+Continue until one array is empty
+
+Append remaining elements
+
+7️⃣ Correct Merge Sort (TypeScript)
+Merge Function
+function merge(left: number[], right: number[]): number[] {
+    const result: number[] = [];
+    let i = 0, j = 0;
+
+    while (i < left.length && j < right.length) {
+        if (left[i] <= right[j]) {
+            result.push(left[i]);
+            i++;
+        } else {
+            result.push(right[j]);
+            j++;
+        }
+    }
+
+    return result.concat(left.slice(i)).concat(right.slice(j));
+}
+
+Merge Sort Function
+function mergeSort(array: number[]): number[] {
+    if (array.length <= 1) return array;
+
+    const mid = Math.floor(array.length / 2);
+    const left = mergeSort(array.slice(0, mid));
+    const right = mergeSort(array.slice(mid));
+
+    return merge(left, right);
+}
+
+8️⃣ Time Complexity (Very Important)
+
+| Case    | Time       |
+| ------- | ---------- |
+| Best    | O(n log n) |
+| Average | O(n log n) |
+| Worst   | O(n log n) |
+9️⃣ Why O(n log n)?
+
+log n levels of recursion (halving)
+
+n work at each level (merging)
+
+𝑛
+×
+log
+⁡
+𝑛
+n×logn
+🔟 Space Complexity
+
+O(n) extra space
+
+Uses additional arrays
+
+📌 This is the main downside.
+
+1️⃣1️⃣ Stability
+
+✅ Stable
+
+Because:
+
+Equal elements keep their relative order
+
+Left element is chosen first when equal
+
+| Feature    | Insertion | Merge      |
+| ---------- | --------- | ---------- |
+| Time       | O(n²)     | O(n log n) |
+| Space      | O(1)      | O(n)       |
+| Stability  | ✅         | ✅          |
+| Adaptive   | ✅         | ❌          |
+| Large data | ❌         | ✅          |
+
+
+1️⃣3️⃣ Where Merge Sort Is Used in Industry
+✔ Used when:
+
+Large datasets
+
+Stable sort required
+
+Linked lists
+
+External (disk-based) sorting
+
+Parallel processing
+
+✔ Used by:
+
+Databases
+
+Big data systems
+
+Distributed systems
+
+MapReduce
+
+1️⃣4️⃣ Why Merge Sort Is Perfect for Linked Lists
+
+Because:
+
+Splitting is cheap
+
+No random access needed
+
+No extra array copying
+
+1️⃣5️⃣ Merge Sort vs Quick Sort (Preview)
+
+| Merge Sort              | Quick Sort         |
+| ----------------------- | ------------------ |
+| Stable                  | ❌                  |
+| Guaranteed O(n log n)   | Worst O(n²)        |
+| Uses extra space        | In-place           |
+| Good for large datasets | Faster in practice |
+
+1️⃣6️⃣ Common Mistakes
+
+❌ Forgetting base case
+❌ Incorrect merge logic
+❌ Losing elements while merging
+❌ Thinking it’s in-place
+
+1️⃣7️⃣ Mental Model (Memorize This)
+
+“Break everything down until it’s trivial,
+then rebuild it in order.”
+
+1️⃣8️⃣ Senior Engineer Insight 💡
+
+Merge Sort trades memory for predictability.
+
+That’s why it’s used where worst-case performance matters.
+
+1️⃣9️⃣ Interview One-Liner
+
+Merge Sort is a stable, divide-and-conquer sorting algorithm with guaranteed O(n log n) time complexity and O(n) space complexity.

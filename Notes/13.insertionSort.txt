@@ -1,0 +1,153 @@
+🧩 Insertion Sort — Complete Explanation
+1️⃣ What Is Insertion Sort? (Plain English)
+
+Insertion Sort works the way you sort playing cards in your hand:
+
+Take one element at a time and insert it into its correct position in the already-sorted part of the array.
+
+2️⃣ Core Idea (Very Important)
+
+The array is split into two parts:
+
+| Sorted | Unsorted |
+
+
+Initially: first element is considered sorted
+
+One by one, elements from the unsorted part are inserted into the correct position in the sorted part
+
+3️⃣ Step-by-Step Example
+
+Array:
+
+[8, 3, 5, 2, 6]
+
+Step 1
+[8 | 3, 5, 2, 6]
+
+Step 2 – insert 3
+[3, 8 | 5, 2, 6]
+
+Step 3 – insert 5
+[3, 5, 8 | 2, 6]
+
+Step 4 – insert 2
+[2, 3, 5, 8 | 6]
+
+Step 5 – insert 6
+[2, 3, 5, 6, 8]
+
+4️⃣ Algorithm Steps (Formal)
+
+For each element starting from index 1:
+
+Store the current value (key)
+
+Shift all larger elements one position to the right
+
+Insert key in the correct position
+
+5️⃣ Why It’s Called Insertion Sort
+
+Because:
+
+Elements are inserted, not swapped repeatedly
+
+Values are shifted to make room
+
+📌 This is the key difference from Bubble & Selection.
+
+6️⃣ Correct Insertion Sort (TypeScript)
+function insertionSort(array: number[]): number[] {
+    for (let i = 1; i < array.length; i++) {
+        const key = array[i];
+        let j = i - 1;
+
+        while (j >= 0 && array[j]! > key!) {
+            array[j + 1] = array[j]!;
+            j--;
+        }
+
+        array[j + 1] = key!;
+    }
+    return array;
+}
+
+
+Time complexities:
+
+| Case                        | Time      |
+| --------------------------- | --------- |
+| Best case (already sorted)  | **O(n)**  |
+| Average case                | **O(n²)** |
+| Worst case (reverse sorted) | **O(n²)** |
+
+
+8️⃣ Space Complexity
+
+O(1) → in-place
+
+No extra memory needed
+
+9️⃣ Stability (Important)
+
+✅ Stable sort
+
+Why?
+
+Equal elements are not reordered
+
+Only elements greater than key are shifted
+
+🔟 Why Insertion Sort Is Actually Used in Industry
+
+This is the part many tutorials miss 👇
+
+✔ Used when:
+
+Arrays are small
+
+Data is nearly sorted
+
+As a helper algorithm inside hybrids
+
+✔ Used inside:
+
+TimSort
+
+IntroSort
+
+V8 JavaScript engine
+
+Java Collections
+
+📌 Insertion sort has tiny overhead and excellent cache locality.
+
+
+1️⃣2️⃣ Common Mistakes (You Will Avoid These)
+
+❌ Swapping instead of shifting
+❌ Forgetting to store key
+❌ Wrong loop boundaries
+❌ Comparing indexes instead of values
+
+1️⃣3️⃣ Mental Model (Memorize This)
+
+“Everything to the left is sorted.
+Take the next card and slide it into place.”
+
+1️⃣4️⃣ Senior Engineer Insight 💡
+
+Insertion Sort is slow asymptotically,
+but extremely fast in practice for small or nearly sorted datasets.
+
+This is why it survives in real systems.
+
+1️⃣5️⃣ When NOT to Use Insertion Sort
+
+❌ Large random datasets
+❌ When O(n log n) algorithms are available
+
+1️⃣6️⃣ Interview One-Liner
+
+Insertion Sort is a stable, in-place, adaptive sorting algorithm that builds a sorted array one element at a time by shifting larger elements.
