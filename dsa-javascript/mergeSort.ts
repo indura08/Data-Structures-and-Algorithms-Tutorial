@@ -59,6 +59,7 @@ function merge(leftArray:number[], rightArray:number[], array:number[]){
 
 let array:number[] = [78,3,12,4,8,90,56,33,89,34,90,54,19,67,54,7,77,88,91,15,62,32,49,44,54,67,69,42,95,86,39,17,9,37,86];
 mergeSort(array);
+console.log(`array length is : ${array.length}`)
 
 array.forEach((element:number) => {
     console.log(`The array after sort is : ${element}`)

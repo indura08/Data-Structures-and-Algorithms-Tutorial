@@ -1,0 +1,205 @@
+🟢 What is Quick Sort (in plain English)
+
+Quick Sort is a “divide and conquer” sorting algorithm.
+
+Instead of comparing everything with everything (like Bubble / Selection), Quick Sort:
+
+Picks one element as a pivot
+
+Moves smaller elements to the left of the pivot
+
+Moves bigger elements to the right
+
+Recursively sorts left and right parts
+
+That’s it.
+
+🟢 Core idea (ONE sentence)
+
+“Put one element in its correct position, then repeat the same process for the left and right sides.”
+
+🟢 Step-by-step example (very important)
+
+Array:
+
+[45, 12, 29, 71, 59, 27, 8, 10]
+
+Step 1: Choose a pivot
+
+Let’s choose last element (common approach):
+
+pivot = 10
+
+Step 2: Partition the array
+
+We rearrange so that:
+
+[left side < pivot]  pivot  [right side > pivot]
+
+
+After partitioning:
+
+[8] 10 [45,12,29,71,59,27]
+
+
+👉 Notice:
+
+10 is now in the correct final position
+
+We will never touch it again
+
+Step 3: Apply quick sort again
+
+Left side:
+
+[8]  → already sorted
+
+
+Right side:
+
+[45,12,29,71,59,27]
+
+
+Pick pivot again → partition → repeat
+
+Step 4: Recursion stops automatically
+
+When sub-array size is:
+
+0 or 1 → already sorted
+
+
+That’s the base case.
+
+🟢 Two main parts of Quick Sort
+
+Quick Sort always has two functions:
+
+partition() → puts pivot in correct place
+
+quickSort() → recursive calls
+
+🟢 1️⃣ Partition function (most important part)
+
+This is where 90% of bugs happen.
+
+What partition does
+
+Picks pivot
+
+Moves smaller elements to left
+
+Returns pivot index
+
+Partition logic (human thinking)
+
+Choose pivot (usually last element)
+
+Keep an index i for smaller elements
+
+Loop through array:
+
+if element < pivot → swap it forward
+
+Put pivot in the middle
+
+Return pivot index
+
+Code (clean & beginner-friendly)
+function partition(array: number[], low: number, high: number): number {
+    let pivot = array[high];   // last element
+    let i = low - 1;
+
+    for (let j = low; j < high; j++) {
+        if (array[j] < pivot) {
+            i++;
+            // swap
+            let temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
+
+    // place pivot in correct position
+    let temp = array[i + 1];
+    array[i + 1] = array[high];
+    array[high] = temp;
+
+    return i + 1;
+}
+
+🟢 2️⃣ Quick Sort function
+
+This handles recursion.
+
+Logic
+
+Get pivot index
+
+Sort left side
+
+Sort right side
+
+Code
+function quickSort(array: number[], low: number, high: number): void {
+    if (low < high) {
+        let pivotIndex = partition(array, low, high);
+
+        quickSort(array, low, pivotIndex - 1);
+        quickSort(array, pivotIndex + 1, high);
+    }
+}
+
+🟢 Full working example
+let array: number[] = [45, 12, 29, 71, 59, 27, 8, 10];
+
+quickSort(array, 0, array.length - 1);
+
+array.forEach((element) => {
+    console.log(`Sorted element: ${element}`);
+});
+
+🟢 Why Quick Sort is “quick”
+
+| Case    | Time Complexity |
+| ------- | --------------- |
+| Best    | O(n log n)      |
+| Average | O(n log n)      |
+| Worst   | O(n²) 😬        |
+
+
+Worst case happens when:
+
+Array is already sorted
+
+Pivot chosen badly (first or last always)
+
+👉 That’s why pivot choice matters
+
+🟢 Space complexity
+
+O(log n) (recursive stack)
+
+In-place sorting (no extra arrays like merge sort)
+
+
+| Feature    | Quick Sort         | Merge Sort         |
+| ---------- | ------------------ | ------------------ |
+| Speed      | Faster in practice | Slightly slower    |
+| Space      | In-place           | Needs extra arrays |
+| Stability  | ❌ Not stable       | ✅ Stable           |
+| Worst case | O(n²)              | O(n log n)         |
+
+
+🟢 Common mistakes (you WILL hit these)
+
+❌ Wrong base condition → infinite recursion
+❌ Partition loop goes till high instead of high - 1
+❌ Forgetting to swap pivot at the end
+❌ Passing wrong low / high values
+
+(You already hit similar bugs in merge sort — so you’re learning correctly 😄)
+
+🧠 One-line memory trick
+
+“Partition once, then quick sort left and right.”

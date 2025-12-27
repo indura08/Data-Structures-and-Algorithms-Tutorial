@@ -1,0 +1,248 @@
+🟢 What is Heap Sort (in ONE simple sentence)
+
+Heap Sort sorts an array by repeatedly taking the largest element and putting it at the end.
+
+That’s the whole idea.
+
+🟢 First: What the hell is a “Heap”? 😄
+
+A heap is NOT a sorted array.
+
+A heap is:
+
+a special way of arranging data so that the largest (or smallest) value is always at the top.
+
+We will use a Max Heap.
+
+🟢 What is a Max Heap (VERY important)
+
+In a Max Heap:
+
+The parent is always greater than or equal to its children
+
+Example:
+
+        50
+       /  \
+     30    20
+    /  \
+  10   5
+
+
+Rules:
+
+50 ≥ 30, 20
+
+30 ≥ 10, 5
+
+❌ Heap is NOT sorted
+❌ Left and right don’t have order between them
+
+🟢 How is a heap stored? (No trees in code!)
+
+Even though we draw heaps like trees,
+👉 they are stored in arrays
+
+Example array:
+
+[50, 30, 20, 10, 5]
+
+
+Index relationships:
+
+parent index = i
+left child  = 2*i + 1
+right child = 2*i + 2
+
+
+Example:
+
+index 0 → value 50
+left  = 2*0+1 = 1 → 30
+right = 2*0+2 = 2 → 20
+
+🟢 Why heap sort exists (intuition)
+
+We want to:
+
+Quickly find the largest element
+
+Put it at the end
+
+Reduce the array
+
+Repeat
+
+Heap gives us:
+
+largest element at index 0 🔥
+
+🟢 High-level Heap Sort steps (DON’T skip this)
+
+Heap Sort has 2 major phases:
+
+Phase 1: Build a Max Heap
+
+Turn the array into a heap
+
+Phase 2: Sort
+
+Swap first and last
+
+Reduce heap size
+
+Fix the heap
+
+Repeat
+
+🟢 Phase 1: Build Max Heap
+
+Example:
+
+[4, 10, 3, 5, 1]
+
+
+We start from last non-leaf node:
+
+Math.floor(n/2) - 1
+
+
+Why?
+
+Leaves are already heaps
+
+🟢 The core operation: heapify()
+
+heapify fixes a broken heap
+
+If parent < child → swap → repeat downward
+
+heapify explained in words
+
+Assume left & right subtrees are heaps
+
+Compare parent with children
+
+Swap with the largest
+
+Continue until heap rule is satisfied
+
+heapify code (simple)
+function heapify(array: number[], n: number, i: number): void {
+    let largest = i;
+    let left = 2 * i + 1;
+    let right = 2 * i + 2;
+
+    if (left < n && array[left] > array[largest]) {
+        largest = left;
+    }
+
+    if (right < n && array[right] > array[largest]) {
+        largest = right;
+    }
+
+    if (largest !== i) {
+        let temp = array[i];
+        array[i] = array[largest];
+        array[largest] = temp;
+
+        heapify(array, n, largest);
+    }
+}
+
+🟢 Build Heap code
+function buildMaxHeap(array: number[]): void {
+    let n = array.length;
+
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+        heapify(array, n, i);
+    }
+}
+
+
+After this:
+
+array[0] === largest element
+
+🟢 Phase 2: Sorting
+
+Now we repeatedly:
+
+Swap first and last
+
+Reduce heap size
+
+Heapify root
+
+Sorting code
+function heapSort(array: number[]): void {
+    let n = array.length;
+
+    buildMaxHeap(array);
+
+    for (let i = n - 1; i > 0; i--) {
+        // move largest to end
+        let temp = array[0];
+        array[0] = array[i];
+        array[i] = temp;
+
+        heapify(array, i, 0);
+    }
+}
+
+🟢 Full working example
+let array: number[] = [12, 11, 13, 5, 6, 7];
+
+heapSort(array);
+
+array.forEach((value) => {
+    console.log(value);
+});
+
+
+Output:
+
+5
+6
+7
+11
+12
+13
+
+🟢 Time & Space Complexity
+
+| Case    | Time         |
+| ------- | ------------ |
+| Best    | O(n log n)   |
+| Average | O(n log n)   |
+| Worst   | O(n log n) ✅ |
+
+Space:
+
+O(1) extra space (in-place)
+
+🟢 Heap Sort vs others (big picture)
+
+| Algorithm | In-place | Stable | Worst case       |
+| --------- | -------- | ------ | ---------------- |
+| Bubble    | ✅        | ✅      | O(n²)            |
+| Merge     | ❌        | ✅      | O(n log n)       |
+| Quick     | ✅        | ❌      | O(n²)            |
+| **Heap**  | ✅        | ❌      | **O(n log n)** ⭐ |
+
+🟢 Why heap sort is used in real life
+
+When worst-case performance must be guaranteed
+
+Memory is tight
+
+Used in priority queues
+
+Used in OS schedulers
+
+🧠 Memory trick
+
+Heap Sort = Build heap → Swap → Heapify → Repeat
+
+
+
