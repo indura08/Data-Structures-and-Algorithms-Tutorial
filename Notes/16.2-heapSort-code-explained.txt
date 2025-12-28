@@ -1,0 +1,209 @@
+I’ll:
+
+Show the full TypeScript heap sort code
+
+Explain each function separately
+
+Explain every important line
+
+Keep the language simple, no magic jumps
+
+✅ Final Goal of Heap Sort
+----------------------------
+
+We want to:
+
+Sort an array in-place
+
+Use a Max Heap
+
+Repeatedly move the largest element to the end
+
+🧱 Full Heap Sort Code (TypeScript)
+-------------------------------------
+
+function heapSort(array: number[]): void {
+    const n = array.length;
+
+    // PHASE 1: Build Max Heap
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+        heapify(array, n, i);
+    }
+
+    // PHASE 2: Extract elements from heap
+    for (let i = n - 1; i > 0; i--) {
+        // Move current root (largest) to end
+        [array[0], array[i]] = [array[i], array[0]];
+
+        // Restore heap property on reduced heap
+        heapify(array, i, 0);
+    }
+}
+
+🔧 heapify Function (Most Important)
+-----------------------------------------
+
+function heapify(array: number[], heapSize: number, rootIndex: number): void {
+    let largest = rootIndex;
+
+    const left = 2 * rootIndex + 1;
+    const right = 2 * rootIndex + 2;
+
+    if (left < heapSize && array[left] > array[largest]) {
+        largest = left;
+    }
+
+    if (right < heapSize && array[right] > array[largest]) {
+        largest = right;
+    }
+
+    if (largest !== rootIndex) {
+        [array[rootIndex], array[largest]] = [array[largest], array[rootIndex]];
+
+        // Recursively heapify the affected subtree
+        heapify(array, heapSize, largest);
+    }
+}
+
+
+🧠 Now let’s explain EVERYTHING
+1️⃣ heapSort() – Main Function
+const n = array.length;
+
+
+Store array length
+
+Used throughout sorting
+
+2️⃣ Phase 1 – Build Max Heap
+for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+    heapify(array, n, i);
+}
+
+What this does:
+
+Starts from last parent
+
+Moves upward to root
+
+Ensures every parent ≥ children
+
+💡 After this loop:
+
+array[0] is the largest element
+
+3️⃣ Phase 2 – Extract Elements
+for (let i = n - 1; i > 0; i--) {
+
+
+i represents the last index of unsorted part
+
+We shrink heap size after each iteration
+
+Swap largest to end
+[array[0], array[i]] = [array[i], array[0]];
+
+
+array[0] = largest element
+
+Move it to correct sorted position
+
+Restore heap
+heapify(array, i, 0);
+
+
+Heap size is now i
+
+Fix heap starting from root
+
+4️⃣ heapify() – The Core Logic
+Parameters
+heapify(array, heapSize, rootIndex)
+
+
+heapSize → how much of array is heap
+
+rootIndex → index to fix
+
+Step 1: Assume root is largest
+let largest = rootIndex;
+
+Step 2: Calculate children indexes
+const left = 2 * rootIndex + 1;
+const right = 2 * rootIndex + 2;
+
+Step 3: Compare with left child
+if (left < heapSize && array[left] > array[largest]) {
+    largest = left;
+}
+
+Step 4: Compare with right child
+if (right < heapSize && array[right] > array[largest]) {
+    largest = right;
+}
+
+Step 5: If root is NOT largest → swap
+if (largest !== rootIndex) {
+    [array[rootIndex], array[largest]] = [array[largest], array[rootIndex]];
+
+Step 6: Fix affected subtree
+heapify(array, heapSize, largest);
+
+
+Because swap may break heap below
+
+Recursive call fixes it
+
+🧪 Example Run (Quick)
+
+Array:
+
+[4, 10, 3, 5, 1]
+
+
+After build heap:
+
+[10, 5, 3, 4, 1]
+
+
+After sorting:
+
+[1, 3, 4, 5, 10]
+
+⏱ Time & Space Complexity
+
+| Case    | Time       |
+| ------- | ---------- |
+| Best    | O(n log n) |
+| Average | O(n log n) |
+| Worst   | O(n log n) |
+
+Space:
+
+O(1) (in-place)
+
+🟢 When Heap Sort is used
+
+Memory-critical systems
+
+When worst-case guarantee matters
+
+Embedded systems
+
+OS-level scheduling
+
+🎯 Final takeaway (important)
+
+Heap sort is NOT about:
+
+Trees
+
+Fancy math
+
+It is about:
+
+Index math
+
+Controlled swaps
+
+Shrinking problem size
