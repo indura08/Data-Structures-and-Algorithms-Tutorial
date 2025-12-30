@@ -1,0 +1,170 @@
+🔑 Short answer (memorize this)
+
+A hash table is the data structure.
+A hash map is an implementation or usage of that data structure.
+
+Most of the time:
+👉 They mean the same thing in practice.
+
+1️⃣ What is a Hash Table? (the core concept)
+
+A hash table is:
+
+A low-level data structure that:
+
+Uses a hash function
+
+Stores data in an array
+
+Handles collisions
+
+It describes how things work internally.
+
+Think of it as:
+
+Buckets
+
+Hash function
+
+Collision handling
+
+Resizing logic
+
+📌 This is the theory + structure
+
+2️⃣ What is a Hash Map? (what programmers use)
+
+A hash map is:
+
+A high-level abstraction built on top of a hash table.
+
+It exposes:
+
+put(key, value)
+get(key)
+delete(key)
+
+
+You don’t see:
+
+Buckets
+
+Hash math
+
+Collision handling
+
+📌 This is the API you use
+
+3️⃣ Why languages use different names
+Java
+HashMap
+Hashtable
+
+HashMap	Hashtable
+Not synchronized	Synchronized
+Faster	Slower
+Modern	Legacy
+
+👉 Both are hash tables internally
+
+JavaScript / TypeScript
+Map
+Object
+
+Map	Object
+Real hash map	Pseudo hash
+Any key type	String keys
+Predictable	Prototype issues
+Python
+dict
+
+
+Called dict
+
+Implemented using a hash table
+
+C++
+unordered_map
+
+4️⃣ Why people say “hash map” more often
+
+Because:
+
+Developers think in terms of key-value mapping
+
+Not internal memory layout
+
+So:
+
+CS textbooks → “hash table”
+
+Application devs → “hash map”
+
+5️⃣ Are they different in performance?
+
+❌ No.
+
+Both have:
+
+O(1) average lookup
+
+O(n) worst case
+
+Same collision issues
+
+6️⃣ Senior-level explanation (important)
+
+Hash table = implementation detail
+Hash map = interface / usage
+
+Just like:
+
+ArrayList vs dynamic array
+
+Stack vs array-based stack
+
+7️⃣ When the difference actually matters
+
+Only when talking about:
+
+Thread safety (Java)
+
+Memory layout
+
+Low-level system design
+
+Interview theory questions
+
+In real code:
+
+const map = new Map();
+
+
+You are using a hash table, whether you say it or not.
+
+8️⃣ Common interview trap (be ready)
+
+❓ “Difference between HashMap and Hashtable?”
+
+Correct answer:
+
+“A hash table is the underlying data structure, while HashMap is a concrete implementation that provides a key-value interface.”
+
+🧠 Final mental model (keep this forever)
+Hash Function
+     ↓
+Hash Table (data structure)
+     ↓
+Hash Map (API you use)
+
+✅ Final takeaway
+
+If someone says:
+
+“Hash map” → they mean hash table
+
+“Hash table” → they mean hash map
+
+Context decides the meaning
+
+You are not missing anything — this is just naming confusion in CS history.

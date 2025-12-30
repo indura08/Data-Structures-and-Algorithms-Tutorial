@@ -1,6 +1,7 @@
 function heapSort(array) {
     var _a;
     var n = array.length;
+    //methana n/2 - 1 kiyna value ekt adu values wala array eke elements walata thami childs la inne value ek > n/2 -1 nam childs la nha (note ek kiywanna) 
     for (var i = Math.floor(n / 2) - 1; i >= 0; i--) {
         heapify(array, n, i);
     }
