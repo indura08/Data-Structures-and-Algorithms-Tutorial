@@ -72,7 +72,49 @@ class BSTree {
 
     //Remove data from tree
     Remove(rootNode:TreeNode, value:number):void{
-        //yet to implement
+        
+        //empty tree handle
+        if(rootNode === null){
+            console.log(`this tree is empty`)
+            return
+        }
+
+        if(!this.Search(rootNode, value)){
+            console.log(`this mentioned value is not inside the tree`)
+            return
+        }
+
+        //first lets find the node that we want to delete
+        let currentNode: TreeNode | null = rootNode;
+        while(currentNode.data !== value){
+            if(currentNode.data > value){
+                currentNode = currentNode.left!
+            }else{
+                currentNode = currentNode.right!
+            }
+        }
+
+        // if(currentNode.left === null || currentNode.right === null){
+        //     if(currentNode.right === null){
+        //         currentNode = currentNode.left!;
+        //         currentNode.left = this.RemoveHelperSuccessor(curre)
+        //     }
+        // }
+
+        if(currentNode.left === null && currentNode.right === null){
+            currentNode = null;
+            return
+        }else if(currentNode.left === null){
+            currentNode.data = this.RemoveHelperSuccessor(currentNode.left!);
+            //yet to implement 
+            //did not complete
+        }
+
+        
+    }
+
+    RemoveHelperSuccessor(currentNode:TreeNode):number{
+        return this.rootNode?.data!
     }
 }
 
