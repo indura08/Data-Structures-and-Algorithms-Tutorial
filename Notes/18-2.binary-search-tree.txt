@@ -1,0 +1,624 @@
+PART 1: BINARY TREE (FOUNDATION)
+1️⃣ What is a Binary Tree?
+
+Definition (very important):
+
+A Binary Tree is a data structure where
+each node can have at most TWO children:
+
+left child
+
+right child
+
+That’s it.
+❌ No ordering rule
+❌ No “smaller goes left” rule
+❌ No sorting guarantee
+
+Binary Tree is just a structure, not a searching rule.
+
+2️⃣ Binary Tree Node structure
+
+Every binary tree is made of nodes.
+
+Each node contains:
+
+A value
+
+A reference to the left child
+
+A reference to the right child
+
+TypeScript Node class
+class TreeNode {
+    value: number;
+    left: TreeNode | null;
+    right: TreeNode | null;
+
+    constructor(value: number) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+Explanation (line by line)
+
+value → data stored in the node
+
+left → reference to left child (or null)
+
+right → reference to right child (or null)
+
+null → means no child exists
+
+3️⃣ Binary Tree (container class)
+
+We need something to hold the root.
+
+class BinaryTree {
+    root: TreeNode | null;
+
+    constructor() {
+        this.root = null;
+    }
+}
+
+Important idea
+
+Every tree has one entry point → the root
+
+4️⃣ Traversals (VERY IMPORTANT)
+
+Traversal = how you visit nodes
+
+Binary Tree has 3 core traversals.
+
+🔹 In-order Traversal (Left → Node → Right)
+inOrder(node: TreeNode | null): void {
+    if (node === null) return;
+
+    this.inOrder(node.left);
+    console.log(node.value);
+    this.inOrder(node.right);
+}
+
+
+Meaning in words:
+
+Go left
+
+Visit current node
+
+Go right
+
+🔹 Pre-order Traversal (Node → Left → Right)
+preOrder(node: TreeNode | null): void {
+    if (node === null) return;
+
+    console.log(node.value);
+    this.preOrder(node.left);
+    this.preOrder(node.right);
+}
+
+🔹 Post-order Traversal (Left → Right → Node)
+postOrder(node: TreeNode | null): void {
+    if (node === null) return;
+
+    this.postOrder(node.left);
+    this.postOrder(node.right);
+    console.log(node.value);
+}
+
+🔑 Key takeaway (Binary Tree)
+
+Binary Tree = structure only
+
+No ordering
+
+Traversals work the same for all tree types
+
+PART 2: BINARY SEARCH TREE (BST)
+
+Now we add rules.
+
+5️⃣ What is a Binary Search Tree?
+
+Definition (memorize this):
+
+A Binary Search Tree is a Binary Tree where:
+
+Left subtree contains smaller values
+
+Right subtree contains larger values
+
+No duplicates (usually)
+
+6️⃣ BST class (same node, different rules)
+
+We reuse the same TreeNode class.
+
+class BinarySearchTree {
+    root: TreeNode | null;
+
+    constructor() {
+        this.root = null;
+    }
+}
+
+7️⃣ Insert in BST
+Insert logic (VERY IMPORTANT)
+
+Rule:
+
+Smaller → go left
+
+Larger → go right
+
+Repeat until you find null
+
+BST Insert Code
+insert(value: number): void {
+    const newNode = new TreeNode(value);
+
+    if (this.root === null) {
+        this.root = newNode;
+        return;
+    }
+
+    let current = this.root;
+
+    while (true) {
+        if (value < current.value) {
+            if (current.left === null) {
+                current.left = newNode;
+                return;
+            }
+            current = current.left;
+        } else {
+            if (current.right === null) {
+                current.right = newNode;
+                return;
+            }
+            current = current.right;
+        }
+    }
+}
+
+Insert explained in plain words
+
+Create a new node
+
+If tree is empty → make it root
+
+Otherwise:
+
+Compare values
+
+Move left or right
+
+Stop when a null child is found
+
+Insert there
+
+8️⃣ Search in BST
+Search Code
+search(value: number): boolean {
+    let current = this.root;
+
+    while (current !== null) {
+        if (value === current.value) {
+            return true;
+        } else if (value < current.value) {
+            current = current.left;
+        } else {
+            current = current.right;
+        }
+    }
+
+    return false;
+}
+
+Why BST search is fast
+
+Each comparison cuts the tree in half
+
+Time complexity:
+
+Best / Average: O(log n)
+
+Worst (skewed tree): O(n)
+
+9️⃣ BST Traversal (same as Binary Tree)
+
+In-order traversal in BST gives sorted output.
+
+inOrder(node: TreeNode | null): void {
+    if (node === null) return;
+
+    this.inOrder(node.left);
+    console.log(node.value);
+    this.inOrder(node.right);
+}
+
+10️⃣ Test the BST
+const bst = new BinarySearchTree();
+
+bst.insert(50);
+bst.insert(30);
+bst.insert(70);
+bst.insert(20);
+bst.insert(40);
+bst.insert(60);
+bst.insert(80);
+
+bst.inOrder(bst.root);
+// Output: 20 30 40 50 60 70 80
+
+console.log(bst.search(40)); // true
+console.log(bst.search(100)); // false
+
+🔥 BIG PICTURE (Very Important)
+
+| Concept      | Binary Tree | Binary Search Tree |
+| ------------ | ----------- | ------------------ |
+| Max children | 2           | 2                  |
+| Ordering     | ❌ No        | ✅ Yes              |
+| Fast search  | ❌ No        | ✅ Yes              |
+| Traversals   | Same        | Same               |
+
+
+important notes about BST shape:
+---------------------------------
+
+1️⃣ Does insertion order affect the BST shape?
+
+YES. 100%.
+
+A BST does NOT rearrange itself.
+It only follows this rule when inserting:
+
+smaller → left
+larger → right
+
+So the order you insert values directly determines the shape of the tree.
+
+2️⃣ Let’s compare your two insertion orders
+🔹 Order A (nice & balanced)
+10, 5, 15, 3, 7, 13, 20
+
+
+This produces a balanced-looking tree:
+
+        10
+       /  \
+      5    15
+     / \   / \
+    3   7 13  20
+
+
+Height is small
+
+Left and right sides are similar
+
+Search is fast → O(log n)
+
+🔹 Order B (weird / unbalanced)
+10, 3, 13, 20, 7, 15, 5
+
+
+Resulting shape:
+
+        10
+       /  \
+      3    13
+       \     \
+        7     20
+       /     /
+      5     15
+
+
+Tree is uneven
+
+Some paths are much deeper
+
+Search can degrade toward O(n)
+
+3️⃣ So… does BST shape matter?
+✅ YES — shape matters a LOT
+
+The shape determines performance.
+
+Tree Shape	Height	Search Time
+Balanced	log₂(n)	O(log n)
+Skewed	n	O(n) (same as linked list)
+
+👉 A badly shaped BST loses its main advantage.
+
+4️⃣ Worst-case BST (very important to know)
+
+If you insert already sorted data:
+
+1, 2, 3, 4, 5, 6
+
+
+You get this:
+
+1
+ \
+  2
+   \
+    3
+     \
+      4
+       \
+        5
+
+
+That is not better than a linked list.
+
+5️⃣ Key senior-level conclusion
+
+BSTs are fast only if they stay balanced
+Insertion order decides balance
+
+This is why:
+
+Plain BSTs are rarely used in production
+
+Self-balancing trees exist
+
+6️⃣ How industry solves this problem
+
+Instead of relying on insertion order, we use:
+
+✅ Self-balancing trees
+
+They automatically fix the shape.
+
+| Tree Type        | Used In                   |
+| ---------------- | ------------------------- |
+| AVL Tree         | Databases, compilers      |
+| Red-Black Tree   | Java `TreeMap`, C++ `map` |
+| B-Tree / B+ Tree | File systems, DB indexes  |
+
+7️⃣ Simple rule to remember
+
+BST correctness does NOT depend on shape
+BST performance DOES
+
+Your tree will always be a valid BST,
+but it may become slow if poorly shaped.
+
+8️⃣ One-line answer to your question
+
+✔️ Yes, insertion order matters
+✔️ Yes, BST shape matters for performance
+❌ No, plain BSTs don’t fix shape automatically
+
+how the shape of the tree affect the performance of a Binary Search Tree
+-------------------------------------------------------------------------
+
+1️⃣ First: what does “performance” even mean in a BST?
+
+When we talk about BST performance, we mainly mean:
+
+Search
+
+Insert
+
+Delete
+
+All three operations do one thing repeatedly:
+
+Compare a value
+Move left or right
+Repeat until done
+
+So performance depends on:
+
+How many comparisons (steps) we do
+
+2️⃣ What decides how many steps we take?
+
+👉 The height of the tree
+
+Tree height (important definition)
+
+Height = number of nodes on the longest path from root to a leaf
+
+Example:
+
+10 → 5 → 3 → 1
+
+
+Height = 4
+
+3️⃣ BST operations = height-based operations
+
+For any BST operation:
+
+Time ≈ number of levels we travel
+Time ≈ tree height
+
+
+So:
+
+BST performance = O(height)
+
+This is the key relationship.
+
+4️⃣ Now the critical connection
+Shape of the tree ⟶ Height ⟶ Performance
+
+Let’s prove this with examples.
+
+5️⃣ Case 1: Balanced BST (GOOD shape)
+
+Example:
+
+        10
+       /  \
+      5    15
+     / \   / \
+    3   7 13  20
+
+
+Total nodes = 7
+
+Height ≈ log₂(7) ≈ 3
+
+Searching for 7:
+
+Compare with 10
+
+Go left → compare with 5
+
+Go right → found 7
+
+✅ 3 steps
+
+Time Complexity
+O(log n)
+
+
+This is FAST.
+
+6️⃣ Case 2: Skewed BST (BAD shape)
+
+Insert sorted numbers:
+
+1, 2, 3, 4, 5, 6, 7
+
+
+Tree:
+
+1
+ \
+  2
+   \
+    3
+     \
+      4
+       \
+        5
+         \
+          6
+
+
+Total nodes = 7
+
+Height = 7
+
+Searching for 7:
+
+Compare with 1
+
+Compare with 2
+
+Compare with 3
+
+Compare with 4
+
+Compare with 5
+
+Compare with 6
+
+Found
+
+❌ 7 steps
+
+Time Complexity
+O(n)
+
+
+This is slow.
+
+7️⃣ Why shape changes height
+
+Let’s be very precise.
+
+Balanced tree:
+
+Nodes are spread evenly
+
+Left and right subtrees have similar sizes
+
+Height grows slowly
+
+Height ≈ log₂(n)
+
+Unbalanced tree:
+
+Nodes cluster on one side
+
+Tree grows like a chain
+
+Height grows linearly
+
+Height ≈ n
+
+8️⃣ Visual comparison (important)
+
+| Shape    | Height  | Performance |
+| -------- | ------- | ----------- |
+| Balanced | log₂(n) | Fast        |
+| Skewed   | n       | Slow        |
+
+Same number of nodes
+Different shape
+Completely different performance
+
+9️⃣ Why BST does NOT fix this automatically
+
+A plain BST:
+
+Only follows left/right rule
+
+Does NOT rotate
+
+Does NOT rebalance
+
+Trusts insertion order
+
+So if insertion order is bad → shape becomes bad → performance drops.
+
+🔟 Real-world analogy (conceptual, not analogy-heavy)
+
+Think in terms of decisions:
+
+Each level = one decision
+
+Balanced tree = fewer decisions
+
+Skewed tree = many unnecessary decisions
+
+1️⃣1️⃣ Why self-balancing trees exist
+
+Because engineers realized:
+
+“BSTs are great, but only if height stays small.”
+
+So we created:
+
+AVL Trees
+
+Red-Black Trees
+
+B-Trees
+
+These actively control shape.
+
+1️⃣2️⃣ Senior-level summary (memorize this)
+
+BST performance is proportional to its height
+Tree height is determined by shape
+Tree shape is determined by insertion order
+
+Therefore:
+
+Bad shape = bad performance
+
+1️⃣3️⃣ One-sentence answer to your question
+
+The shape of a BST matters because it determines the tree’s height, and all BST operations run in time proportional to that height.

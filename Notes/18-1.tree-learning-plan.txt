@@ -1,0 +1,123 @@
+🧠 Why starting with BST is the RIGHT move
+
+BST teaches you core tree skills that every other tree depends on:
+
+What BST gives you (very important)
+
+By implementing a BST, you will learn:
+
+Node-based thinking
+
+left child
+
+right child
+
+recursion
+
+Tree traversal logic
+
+In-order
+
+Pre-order
+
+Post-order
+
+Recursive problem solving
+
+Every advanced tree uses recursion
+
+Search & insert patterns
+
+Used again in AVL, Red-Black, B-Trees
+
+Comparisons & ordering
+
+Critical for all balanced trees
+
+👉 Without BST knowledge, AVL / Red-Black trees will feel impossible.
+
+❌ Common mistake (you are NOT doing this 👍)
+
+Many people:
+
+Learn BST
+
+Stop there
+
+Think they “know trees”
+
+You are not doing that — you plan to go deeper. That’s perfect.
+
+📌 Using TypeScript = VERY good choice
+
+Since you’re implementing in TypeScript, this is actually better than Java/C++ for learning because:
+
+You must build everything yourself
+
+No built-in tree shortcuts
+
+Forces you to understand references clearly
+
+You’ll learn:
+
+Class-based design
+
+Recursion with types
+
+Edge cases clearly
+
+So: TypeScript is an excellent learning language for trees.
+
+🗺️ Recommended learning path (tree roadmap)
+
+Your plan is correct — here’s the ideal order (stick to this):
+
+Phase 1: Foundations
+
+Binary Tree (concepts only)
+
+Binary Search Tree
+
+insert
+
+search
+
+traversals
+
+delete (important)
+
+👉 Implement BST fully in TypeScript ✅
+
+Phase 2: Improving BST
+
+AVL Tree
+
+rotations
+
+Red-Black Tree
+
+balancing rules (conceptual)
+
+Phase 3: Specialized Trees
+
+Heap
+
+Trie
+
+B-Tree / B+ Tree (conceptual + usage)
+
+⚠️ One important warning (read carefully)
+
+When learning BST, do NOT jump immediately into balancing.
+
+First make sure you can:
+
+Draw the tree by hand
+
+Predict traversal output
+
+Explain recursion line-by-line
+
+If you rush:
+
+AVL rotations will break your brain 😄

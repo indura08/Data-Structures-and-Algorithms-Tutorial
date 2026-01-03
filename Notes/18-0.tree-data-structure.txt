@@ -1,0 +1,13 @@
+Key Terminology
+
+Understanding the specific vocabulary is crucial for working with trees: 
+
+Node: The basic unit that stores data and links to other nodes.
+Parent Node: A node with one or more children.
+Child Node: An immediate successor of a parent node.
+Leaf Node (External Node): A node with no children.
+Internal Node: A node with at least one child.
+Subtree: A node and all of its descendants.
+Height of a Node/Tree: The length of the longest path (number of edges) from the node (or root) to a leaf node.
+Depth/Level of a Node: The number of edges from the root node to the specific node.
+Degree of a Node: The number of children a node has. 
